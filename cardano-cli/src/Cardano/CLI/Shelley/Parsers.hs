@@ -839,7 +839,10 @@ pTransaction =
   pTransactionId = TxGetTxId <$> pInputTxOrTxBodyFile
 
   pTransactionView :: Parser TransactionCmd
-  pTransactionView = TxView <$> pInputTxOrTxBodyFile
+  pTransactionView =
+    TxView
+      <$> pInputTxOrTxBodyFile
+      <*> pMaybeOutputFile
 
 pNodeCmd :: Parser NodeCmd
 pNodeCmd =
