@@ -656,6 +656,7 @@ module Cardano.Api (
     queryNodeLocalState,
     executeQueryCardanoMode,
     UnsupportedNtcVersionError(..),
+    renderUnsupportedNtcVersionError,
 
     -- *** Local tx monitoring
     LocalTxMonitorClient(..),

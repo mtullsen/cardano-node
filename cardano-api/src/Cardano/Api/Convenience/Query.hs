@@ -1,6 +1,8 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeFamilies #-}
 
+{- HLINT ignore "Move brackets to avoid $" -}
+
 -- | Convenience query functions
 --
 module Cardano.Api.Convenience.Query (
@@ -13,8 +15,11 @@ module Cardano.Api.Convenience.Query (
     renderQueryConvenienceError,
   ) where
 
+import           Prelude
+
+import           Control.Monad.Trans.Class (lift)
 import           Control.Monad.Trans.Except (ExceptT (..), except, runExceptT)
-import           Control.Monad.Trans.Except.Extra (firstExceptT, hoistMaybe)
+import           Control.Monad.Trans.Except.Extra (firstExceptT, hoistMaybe, left, onLeft)
 import           Data.Bifunctor (first)
 import           Data.Function ((&))
 import           Data.Set (Set)
@@ -28,6 +33,7 @@ import           Cardano.Api.Convenience.Constraints
 import           Cardano.Api.Environment
 import           Cardano.Api.Eras
 import           Cardano.Api.IPC
+import           Cardano.Api.IPC.Monad
 import           Cardano.Api.Modes
 import           Cardano.Api.NetworkId
 import           Cardano.Api.ProtocolParameters
@@ -41,6 +47,7 @@ data QueryConvenienceError
   | QueryEraMismatch EraMismatch
   | ByronEraNotSupported
   | EraConsensusModeMismatch !AnyConsensusMode !AnyCardanoEra
+  | ConvenienceUnsupportedNtcVersionError !UnsupportedNtcVersionError
 
 renderQueryConvenienceError :: QueryConvenienceError -> Text
 renderQueryConvenienceError (AcqFailure e) =
@@ -56,6 +63,8 @@ renderQueryConvenienceError ByronEraNotSupported =
 renderQueryConvenienceError (EraConsensusModeMismatch cMode anyCEra) =
   "Consensus mode and era mismatch. Consensus mode: " <> textShow cMode <>
   " Era: " <> textShow anyCEra
+renderQueryConvenienceError (ConvenienceUnsupportedNtcVersionError e) =
+  renderUnsupportedNtcVersionError e
 
 -- | A convenience function to query the relevant information, from
 -- the local node, for Cardano.Api.Convenience.Construction.constructBalancedTx
@@ -88,13 +97,16 @@ queryStateForBalancedTx era networkId allTxIns = runExceptT $ do
       stakePoolsQuery = QueryInEra qeInMode . QueryInShelleyBasedEra qSbe $ QueryStakePools
 
   -- Query execution
-  utxo <- ExceptT $ executeQueryCardanoMode era networkId utxoQuery
-  pparams <- ExceptT $ executeQueryCardanoMode era networkId pparamsQuery
-  eraHistory <- firstExceptT AcqFailure $ ExceptT $ queryNodeLocalState localNodeConnInfo Nothing eraHistoryQuery
-  systemStart <- firstExceptT AcqFailure $ ExceptT $ queryNodeLocalState localNodeConnInfo Nothing systemStartQuery
-  stakePools <- ExceptT $ executeQueryCardanoMode era networkId stakePoolsQuery
-
-  return (utxo, pparams, eraHistory, systemStart, stakePools)
+  ( lift $ executeLocalStateQueryExpr localNodeConnInfo Nothing $ runExceptT $ runExceptT $ do
+      utxo <- ExceptT $ ExceptT $ queryExpr utxoQuery
+      pparams <- ExceptT $ ExceptT $ queryExpr pparamsQuery
+      eraHistory <- ExceptT $ fmap Right $ ExceptT $ queryExpr eraHistoryQuery
+      systemStart <- ExceptT $ fmap Right $ ExceptT $ queryExpr systemStartQuery
+      stakePools <- ExceptT $ ExceptT $ queryExpr stakePoolsQuery
+      pure (utxo, pparams, eraHistory, systemStart, stakePools)
+    ) & onLeft (left . AcqFailure)
+      & onLeft (left . ConvenienceUnsupportedNtcVersionError)
+      & onLeft (left . QueryEraMismatch)
 
 -- | Query the node to determine which era it is in.
 determineEra
