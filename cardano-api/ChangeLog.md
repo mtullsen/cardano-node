@@ -86,6 +86,15 @@
   `genSignedNonZeroQuantity`. ([PR 5013](https://github.com/input-output-hk/cardano-node/pull/5013))
 - New 'Governance.Poll' API implementing [CIP-0094](https://github.com/cardano-foundation/CIPs/pull/496) ([PR 5050](https://github.com/input-output-hk/cardano-node/pull/5050))
 
+- Introduce the `oops` library to `cardano-api` and `cardano-cli` to simplify error handling.  The following functions that make use of `oops` have been added to `Cardano.Api`.
+
+  * `determineEraExpr_`
+  * `getNtcVersion_`
+  * `handleQueryConvenienceErrors_`
+  * `queryExpr_`
+  * `queryNodeLocalState_`
+  * `queryStateForBalancedTx_`
+
 ### Bugs
 
 - Allow reading text envelopes from pipes ([PR 4384](https://github.com/input-output-hk/cardano-node/pull/4384))
