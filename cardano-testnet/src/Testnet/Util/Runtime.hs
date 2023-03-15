@@ -16,6 +16,10 @@ module Testnet.Util.Runtime
   , Delegator(..)
   , allNodes
   , bftSprockets
+  , makeLogDir
+  , makeSocketDir
+  , makeSprocket
+  , makeTmpBaseAbsPath
   , poolSprockets
   , poolNodeStdout
   , readNodeLoggingFormat
@@ -99,6 +103,13 @@ data LeadershipSlot = LeadershipSlot
   { slotNumber  :: Int
   , slotTime    :: Text
   } deriving (Eq, Show, Generic, FromJSON)
+
+makeSprocket
+  :: TmpAbsolutePath
+  -> String -- ^ node name
+  -> Sprocket
+makeSprocket tmpAbsPath node
+  = Sprocket (makeTmpBaseAbsPath tmpAbsPath) (makeSocketDir tmpAbsPath </> node)
 
 -- Temporary path used at runtime
 newtype TmpAbsolutePath = TmpAbsolutePath
