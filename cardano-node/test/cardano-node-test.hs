@@ -11,9 +11,10 @@ import qualified Test.Cardano.Node.FilePermissions
 #endif
 import qualified Test.Cardano.Node.Json
 import qualified Test.Cardano.Node.POM
+import qualified Test.Cardano.Tracing.OrphanInstances.HardFork
 
 main :: IO ()
-main = defaultMain
+main = defaultMain $
 #ifdef UNIX
   [ Test.Cardano.Node.Json.tests
   , Test.Cardano.Node.POM.tests
@@ -24,4 +25,6 @@ main = defaultMain
   , Test.Cardano.Node.POM.tests
   ]
 #endif
-
+  <>
+  [ Test.Cardano.Tracing.OrphanInstances.HardFork.tests
+  ]
