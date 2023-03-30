@@ -19,7 +19,6 @@ module Cardano.Api.Convenience.Query (
   ) where
 
 import           Control.Monad.Oops (CouldBe, Variant, runOopsInEither)
-import qualified Control.Monad.Oops as OO
 import           Control.Monad.Trans.Except (ExceptT (..), except, runExceptT)
 import           Control.Monad.Trans.Except.Extra (firstExceptT, hoistMaybe, left, onLeft,
                    onNothing)
