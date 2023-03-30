@@ -33,21 +33,36 @@ import           Cardano.Api.Byron
 import           Cardano.Api.Orphans ()
 import           Cardano.Api.Shelley
 
+import           Control.Monad (forM, forM_)
+import           Control.Monad.IO.Class (MonadIO)
+import           Control.Monad.IO.Unlift (MonadIO (..))
+import           Control.Monad.Oops (CouldBe, Variant, runOopsInEither, runOopsInExceptT)
+import qualified Control.Monad.Oops as OO
+import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Except (ExceptT (..), except, runExcept, runExceptT)
 import           Control.Monad.Trans.Except.Extra (firstExceptT, handleIOExceptT, hoistEither,
                    hoistMaybe, left, onLeft, onNothing)
 import           Data.Aeson as Aeson
 import           Data.Aeson.Encode.Pretty (encodePretty)
 import           Data.Aeson.Types as Aeson
+import           Data.Bifunctor (Bifunctor (..))
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.Coerce (coerce)
+import           Data.Function ((&))
+import           Data.Functor ((<&>))
 import           Data.List (nub)
+import qualified Data.List as List
+import           Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
+import           Data.Proxy (Proxy (..))
+import           Data.Set (Set)
 import qualified Data.Set as Set
+import           Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.IO as T
 import qualified Data.Text.IO as Text
+import           Data.Text.Lazy (toStrict)
 import           Data.Text.Lazy.Builder (toLazyText)
 import           Data.Time.Clock
 import qualified Data.Vector as Vector
@@ -56,6 +71,7 @@ import           Numeric (showEFloat)
 import           Prettyprinter
 import qualified System.IO as IO
 import           Text.Printf (printf)
+
 
 import           Cardano.Binary (DecoderError)
 import           Cardano.CLI.Helpers (HelpersError (..), hushM, pPrintCBOR, renderHelpersError)
@@ -90,22 +106,6 @@ import qualified Ouroboros.Consensus.HardFork.History as Consensus
 import qualified Ouroboros.Consensus.HardFork.History.Qry as Qry
 import qualified Ouroboros.Consensus.Protocol.Abstract as Consensus
 import qualified Ouroboros.Consensus.Protocol.Praos.Common as Consensus
-
-import           Control.Monad (forM, forM_)
-import           Control.Monad.IO.Class (MonadIO)
-import           Control.Monad.IO.Unlift (MonadIO (..))
-import           Control.Monad.Oops (CouldBe, Variant, runOopsInExceptT)
-import qualified Control.Monad.Oops as OO
-import           Control.Monad.Trans.Class
-import           Data.Bifunctor (Bifunctor (..))
-import           Data.Function ((&))
-import           Data.Functor ((<&>))
-import qualified Data.List as List
-import           Data.Map.Strict (Map)
-import           Data.Proxy (Proxy (..))
-import           Data.Set (Set)
-import           Data.Text (Text)
-import           Data.Text.Lazy (toStrict)
 
 {- HLINT ignore "Move brackets to avoid $" -}
 {- HLINT ignore "Redundant flip" -}
@@ -289,7 +289,7 @@ runQueryTip mNodeSocketPath (AnyConsensusModeParams cModeParams) network mOutFil
   case consensusModeOnly cModeParams of
     CardanoMode -> do
       let localNodeConnInfo = LocalNodeConnectInfo cModeParams network sockPath
-      eLocalState <- liftIO $ runExceptT $ runOopsInExceptT @ShelleyQueryCmdError $ do
+      eLocalState <- liftIO $ runOopsInEither @ShelleyQueryCmdError $ do
         executeLocalStateQueryExpr_ localNodeConnInfo Nothing
           (do
               era <- queryExpr_ (QueryCurrentEra CardanoModeIsMultiEra)
