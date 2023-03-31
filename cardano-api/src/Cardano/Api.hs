@@ -703,6 +703,7 @@ module Cardano.Api (
 
     -- *** Common queries
     determineEra,
+    determineEra_,
     getLocalChainTip,
 
     -- * Node operation
