@@ -19,7 +19,6 @@ index-state:
   , cardano-haskell-packages 2023-03-22T09:20:07Z
 
 packages:
-    cardano-api
     cardano-cli
     cardano-client-demo
     cardano-git-rev
@@ -108,3 +107,12 @@ allow-newer:
 -- IMPORTANT
 -- Do NOT add more source-repository-package stanzas here unless they are strictly
 -- temporary! Please read the section in CONTRIBUTING about updating dependencies.
+
+-- Drops an instance breaking our code. Should be released to Hackage eventually.
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/cardano-api
+  tag: 4a481b7955586f95a1540cfaaa70b95fba0318c9
+  --sha256: 1xcgnncdckk27wvdhdr5kayjackna5i9xp2ln8v77sg2im6bzg9p
+  subdir:
+    cardano-api

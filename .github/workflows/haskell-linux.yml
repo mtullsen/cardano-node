@@ -142,7 +142,7 @@ jobs:
         TMPDIR: ${{ runner.temp }}
         TMP: ${{ runner.temp }}
         KEEP_WORKSPACE: 1
-      run: cabal test cardano-testnet cardano-api cardano-node cardano-node-chairman cardano-cli cardano-submit-api
+      run: cabal test cardano-testnet cardano-node cardano-node-chairman cardano-cli cardano-submit-api
 
     - name: "Tar artifacts"
       shell: bash
