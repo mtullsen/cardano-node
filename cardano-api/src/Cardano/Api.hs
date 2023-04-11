@@ -284,9 +284,11 @@ module Cardano.Api (
 
     -- ** Era-dependent protocol features
     ProtocolUTxOCostPerByteSupportedInEra(..),
+    ProtocolUTxOCostPerWordSupportedInEra(..),
 
     -- ** Era-dependent protocol feature availability functions
     protocolUTxOCostPerByteSupportedInEra,
+    protocolUTxOCostPerWordSupportedInEra,
 
     -- ** Fee calculation
     LedgerEpochInfo(..),
