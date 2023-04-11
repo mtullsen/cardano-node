@@ -22,7 +22,7 @@ import           Control.Monad.Trans (MonadTrans (..))
 import           Control.Monad.Trans.Except (ExceptT)
 import           Control.Monad.Trans.Except.Extra (firstExceptT, hoistEither, hoistMaybe, left,
                    newExceptT, onLeft, onNothing)
-import           Data.Aeson ((.=))
+import           Data.Aeson (ToJSON (..), (.=))
 import qualified Data.Aeson as Aeson
 import           Data.Aeson.Encode.Pretty (encodePretty)
 import           Data.Bifunctor (Bifunctor (..))
@@ -284,8 +284,8 @@ runTransactionCmd cmd =
       runTxSign txinfile skfiles network txoutfile
     TxSubmit mNodeSocketPath anyConsensusModeParams network txFp ->
       runTxSubmit mNodeSocketPath anyConsensusModeParams network txFp
-    TxCalculateMinFee txbody mnw pParamsFile nInputs nOutputs nShelleyKeyWitnesses nByronKeyWitnesses ->
-      runTxCalculateMinFee txbody mnw pParamsFile nInputs nOutputs nShelleyKeyWitnesses nByronKeyWitnesses
+    TxCalculateMinFee txbody mnw pParamsFile nInputs nOutputs nShelleyKeyWitnesses nByronKeyWitnesses mOutputFile ->
+      runTxCalculateMinFee txbody mnw pParamsFile nInputs nOutputs nShelleyKeyWitnesses nByronKeyWitnesses mOutputFile
     TxCalculateMinRequiredUTxO era pParamsFile txOuts -> runTxCalculateMinRequiredUTxO era pParamsFile txOuts
     TxHashScriptData scriptDataOrFile -> runTxHashScriptData scriptDataOrFile
     TxGetTxId txinfile -> runTxGetTxId txinfile
@@ -1153,47 +1153,55 @@ runTxCalculateMinFee
   -> TxOutCount
   -> TxShelleyWitnessCount
   -> TxByronWitnessCount
+  -> Maybe (File () Out)
   -> ExceptT ShelleyTxCmdError IO ()
-runTxCalculateMinFee (File txbodyFilePath) nw pParamsFile
-                     (TxInCount nInputs) (TxOutCount nOutputs)
-                     (TxShelleyWitnessCount nShelleyKeyWitnesses)
-                     (TxByronWitnessCount nByronKeyWitnesses) = do
+runTxCalculateMinFee
+    (File txbodyFilePath) nw pParamsFile
+    (TxInCount nInputs) (TxOutCount nOutputs)
+    (TxShelleyWitnessCount nShelleyKeyWitnesses)
+    (TxByronWitnessCount nByronKeyWitnesses)
+    mOutputFile = do
+  txbodyFile <- liftIO $ fileOrPipe txbodyFilePath
+  unwitnessed <- firstExceptT ShelleyTxCmdCddlError . newExceptT
+                    $ readFileTxBody txbodyFile
 
-    txbodyFile <- liftIO $ fileOrPipe txbodyFilePath
-    unwitnessed <- firstExceptT ShelleyTxCmdCddlError . newExceptT
-                     $ readFileTxBody txbodyFile
-    pparams <- firstExceptT ShelleyTxCmdProtocolParamsError $ readProtocolParameters pParamsFile
-    case unwitnessed of
-      IncompleteCddlFormattedTx anyTx -> do
-        InAnyShelleyBasedEra _era unwitTx <-
-          onlyInShelleyBasedEras "sign for Byron era transactions" anyTx
-        let txbody =  getTxBody unwitTx
-        let tx = makeSignedTransaction [] txbody
-            Lovelace fee = estimateTransactionFee
-                             (fromMaybe Mainnet nw)
-                             (protocolParamTxFeeFixed pparams)
-                             (protocolParamTxFeePerByte pparams)
-                             tx
-                             nInputs nOutputs
-                             nByronKeyWitnesses nShelleyKeyWitnesses
+  pparams <- firstExceptT ShelleyTxCmdProtocolParamsError $ readProtocolParameters pParamsFile
+  case unwitnessed of
+    IncompleteCddlFormattedTx anyTx -> do
+      InAnyShelleyBasedEra _era unwitTx <-
+        onlyInShelleyBasedEras "sign for Byron era transactions" anyTx
 
-        liftIO $ putStrLn $ (show fee :: String) <> " Lovelace"
+      let txbody =  getTxBody unwitTx
+      let tx = makeSignedTransaction [] txbody
+          Lovelace fee = estimateTransactionFee
+                            (fromMaybe Mainnet nw)
+                            (protocolParamTxFeeFixed pparams)
+                            (protocolParamTxFeePerByte pparams)
+                            tx
+                            nInputs nOutputs
+                            nByronKeyWitnesses nShelleyKeyWitnesses
 
-      UnwitnessedCliFormattedTxBody anyTxBody -> do
-        InAnyShelleyBasedEra _era txbody <-
-              --TODO: in principle we should be able to support Byron era txs too
-              onlyInShelleyBasedEras "calculate-min-fee for Byron era transactions" anyTxBody
+      case mOutputFile of
+        Just fp -> liftIO $ LBS.writeFile (unFile fp) (Aeson.encode (toJSON fee))
+        Nothing -> liftIO $ putStrLn $ (show fee :: String) <> " Lovelace"
 
-        let tx = makeSignedTransaction [] txbody
-            Lovelace fee = estimateTransactionFee
-                             (fromMaybe Mainnet nw)
-                             (protocolParamTxFeeFixed pparams)
-                             (protocolParamTxFeePerByte pparams)
-                             tx
-                             nInputs nOutputs
-                             nByronKeyWitnesses nShelleyKeyWitnesses
+    UnwitnessedCliFormattedTxBody anyTxBody -> do
+      InAnyShelleyBasedEra _era txbody <-
+            --TODO: in principle we should be able to support Byron era txs too
+            onlyInShelleyBasedEras "calculate-min-fee for Byron era transactions" anyTxBody
 
-        liftIO $ putStrLn $ (show fee :: String) <> " Lovelace"
+      let tx = makeSignedTransaction [] txbody
+          Lovelace fee = estimateTransactionFee
+                            (fromMaybe Mainnet nw)
+                            (protocolParamTxFeeFixed pparams)
+                            (protocolParamTxFeePerByte pparams)
+                            tx
+                            nInputs nOutputs
+                            nByronKeyWitnesses nShelleyKeyWitnesses
+
+      case mOutputFile of
+        Just fp -> liftIO $ LBS.writeFile (unFile fp) (Aeson.encode (toJSON fee))
+        Nothing -> liftIO $ putStrLn $ (show fee :: String) <> " Lovelace"
 
 -- ----------------------------------------------------------------------------
 -- Transaction fee calculation

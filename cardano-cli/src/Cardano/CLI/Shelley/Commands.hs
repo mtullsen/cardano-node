@@ -246,6 +246,7 @@ data TransactionCmd
       TxOutCount
       TxShelleyWitnessCount
       TxByronWitnessCount
+      (Maybe (File () Out))
   | TxCalculateMinRequiredUTxO
       AnyCardanoEra
       ProtocolParamsFile
