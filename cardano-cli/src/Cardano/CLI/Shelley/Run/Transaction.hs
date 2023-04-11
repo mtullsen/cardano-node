@@ -1315,31 +1315,10 @@ runTxGetTxId txfile = do
 
     liftIO $ BS.putStrLn $ serialiseToRawBytesHex (getTxId txbody)
 
-<<<<<<< HEAD
-runTxView :: InputTxBodyOrTxFile -> ExceptT ShelleyTxCmdError IO ()
-runTxView = \case
-  InputTxBodyFile (File txbodyFilePath) -> do
-    txbodyFile <- liftIO $ fileOrPipe txbodyFilePath
-    unwitnessed <- firstExceptT ShelleyTxCmdCddlError . newExceptT
-                     $ readFileTxBody txbodyFile
-    InAnyCardanoEra era txbody <-
-      case unwitnessed of
-        UnwitnessedCliFormattedTxBody anyTxBody -> pure anyTxBody
-        IncompleteCddlFormattedTx (InAnyCardanoEra era tx) ->
-          pure $ InAnyCardanoEra era (getTxBody tx)
-    --TODO: Why are we maintaining friendlyTxBodyBS and friendlyTxBS?
-    -- In the case of a transaction body, we can simply call makeSignedTransaction []
-    -- to get a transaction which allows us to reuse friendlyTxBS!
-    liftIO $ BS.putStr $ friendlyTxBodyBS era txbody
-  InputTxFile (File txFilePath) -> do
-    txFile <- liftIO $ fileOrPipe txFilePath
-    InAnyCardanoEra era tx <- lift (readFileTx txFile) & onLeft (left . ShelleyTxCmdCddlError)
-    liftIO $ BS.putStr $ friendlyTxBS era tx
-=======
-runTxView :: InputTxBodyOrTxFile -> Maybe OutputFile -> ExceptT ShelleyTxCmdError IO ()
+runTxView :: InputTxBodyOrTxFile -> Maybe (File () Out) -> ExceptT ShelleyTxCmdError IO ()
 runTxView input mOutputFile =
   case input of
-    InputTxBodyFile (TxBodyFile txbodyFilePath) -> do
+    InputTxBodyFile (File txbodyFilePath) -> do
       txbodyFile <- liftIO $ fileOrPipe txbodyFilePath
       unwitnessed <- lift (readFileTxBody txbodyFile) & onLeft (left . ShelleyTxCmdCddlError)
       InAnyCardanoEra era txbody <-
@@ -1347,20 +1326,21 @@ runTxView input mOutputFile =
           UnwitnessedCliFormattedTxBody anyTxBody -> pure anyTxBody
           IncompleteCddlFormattedTx (InAnyCardanoEra era tx) ->
             pure $ InAnyCardanoEra era (getTxBody tx)
+
       --TODO: Why are we maintaining friendlyTxBodyBS and friendlyTxBS?
       -- In the case of a transaction body, we can simply call makeSignedTransaction []
       -- to get a transaction which allows us to reuse friendlyTxBS!
 
       case mOutputFile of
-        Just (OutputFile fpath) -> liftIO $ LBS.writeFile fpath $ prettyTxBodyLBS era txbody
+        Just (File fpath) -> liftIO $ LBS.writeFile fpath $ prettyTxBodyLBS era txbody
         Nothing -> liftIO $ BS.putStr $ friendlyTxBodyBS era txbody
 
-    InputTxFile (TxFile txFilePath) -> do
+    InputTxFile (File txFilePath) -> do
       txFile <- liftIO $ fileOrPipe txFilePath
       InAnyCardanoEra era tx <- lift (readFileTx txFile) & onLeft (left . ShelleyTxCmdCddlError)
 
       case mOutputFile of
-        Just (OutputFile fpath) -> liftIO $ LBS.writeFile fpath $ prettyTxLBS era tx
+        Just (File fpath) -> liftIO $ LBS.writeFile fpath $ prettyTxLBS era tx
         Nothing -> liftIO $ BS.putStr $ friendlyTxBS era tx
 
 prettyTxLBS :: CardanoEra era -> Tx era -> LBS.ByteString
@@ -1377,7 +1357,6 @@ prettyTxBodyLBS :: CardanoEra era -> TxBody era -> LBS.ByteString
 prettyTxBodyLBS era (TxBody body) =
   encodePretty
   $ Aeson.object $ getIsCardanoEraConstraint era ["era" .= era, "body" .= body]
->>>>>>> 952e00151 (Add `--output-file` option to `transaction view` command)
 
 
 -- ----------------------------------------------------------------------------
