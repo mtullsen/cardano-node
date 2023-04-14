@@ -28,6 +28,8 @@ endef
 endif
 endef
 
+WB_PROFILING_MODE ?= time
+
 define define_profile_targets
 ##                                           defining this target       profname  nix   dev   auto  stay profiled  backend
 $$(foreach prof,$(1),$$(eval $$(call proftgt,$$(prof),                  $$(prof),false, true,false,false, false, supervisor)))
