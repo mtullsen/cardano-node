@@ -28,7 +28,7 @@ endef
 endif
 endef
 
-WB_PROFILING_MODE ?= time
+WB_PROFILING ?= none
 
 define define_profile_targets
 ##                                           defining this target       profname  nix   dev   auto  stay profiled  backend
