@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 module Cardano.CLI.Shelley.Run.Governance
   ( ShelleyGovernanceCmdError
   , renderShelleyGovernanceError
@@ -23,6 +24,8 @@ import           Cardano.CLI.Shelley.Parsers
 import           Cardano.CLI.Types
 
 import qualified Cardano.Ledger.Shelley.TxBody as Shelley
+import           Control.Monad.IO.Class (MonadIO (..))
+import qualified System.IO as IO
 
 
 data ShelleyGovernanceCmdError
@@ -72,6 +75,41 @@ runGovernanceCmd (GovernanceGenesisKeyDelegationCertificate genVk genDelegVk vrf
   runGovernanceGenesisKeyDelegationCertificate genVk genDelegVk vrfVk out
 runGovernanceCmd (GovernanceUpdateProposal out eNo genVKeys ppUp mCostModelFp) =
   runGovernanceUpdateProposal out eNo genVKeys ppUp mCostModelFp
+runGovernanceCmd (GovernanceActionCmd cmd) =
+  runGovernanceActionCmd cmd
+
+runGovernanceActionCmd :: GovernanceActionCmd -> ExceptT ShelleyGovernanceCmdError IO ()
+runGovernanceActionCmd = \case
+  GovernanceActionCreate -> runGovernanceAction
+
+runGovernanceAction :: ExceptT ShelleyGovernanceCmdError IO ()
+runGovernanceAction = do
+  -- TODO CIP-1694
+  --
+  -- # Deposits
+  -- The Ada Holder must provide a deposit of govDeposit Lovelace, which will be returned when
+  -- the action is finalized (whether it is ratified, has been dropped, or has expired).
+  -- The deposit amount will be added to the deposit pot, similar to stake key deposits.
+  -- It will also be counted towards the stake of the reward address it will be paid back to,
+  -- to not reduce the submitter's voting power to vote on their own (and competing) actions.
+  --
+  -- # Metadata
+  -- Instead of specific dedicated fields in the transaction format, we could instead use the existing
+  -- transaction metadata field.
+  --
+  -- Governance-related metadata can be clearly identified by registering a CIP-10 metadata label.
+  -- Within that, the structure of the metadata can be determined by this CIP (exact format TBD), using
+  -- an index to map the vote or governance action ID to the corresponding metadata URL and hash.
+  --
+  -- This avoids the need to add additional fields to the transaction body, at the risk of making it easier
+  -- or submitters to ignore. However, since the required metadata can be empty (or can point to a
+  -- non-resolving URL), it is already easy for submitters to not provide metadata, and so it is unclear
+  -- whether this makes the situation worse.
+  --
+  -- Note that transaction metadata is never stored in the ledger state, so it would be up to clients to
+  -- pair the metadata with the actions and votes in this alternative, and would not be available as a
+  -- ledger state query.
+  liftIO $ IO.hPutStrLn IO.stderr "TODO: implement"
 
 runGovernanceMIRCertificatePayStakeAddrs
   :: Shelley.MIRPot

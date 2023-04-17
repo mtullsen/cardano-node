@@ -1111,6 +1111,14 @@ runTxSubmit
   -> FilePath
   -> ExceptT ShelleyTxCmdError IO ()
 runTxSubmit (AnyConsensusModeParams cModeParams) network txFilePath = do
+    -- TODO CIP-1694
+    --
+    -- Each governance action that is accepted on the chain will be assigned a unique identifier (a.k.a.
+    -- the governance action ID), consisting of the transaction hash that created it and the index within
+    -- the transaction body that points to it.
+    --
+    -- Can the governance ID be printed after the submission of the transaction?
+
     SocketPath sockPath <- lift readEnvSocketPath & onLeft (left . ShelleyTxCmdSocketEnvError)
 
     txFile <- liftIO $ fileOrPipe txFilePath
