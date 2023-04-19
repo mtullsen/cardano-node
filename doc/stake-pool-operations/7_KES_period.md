@@ -71,7 +71,17 @@ Prior to Vasil, it was permitted to use any strictly larger counter value than u
 
 ### Find the counter value used on-chain
 
-To find out the current **Operational Certificate Counter** registered on-chain, run:
+You can find the Operational certificate counter currently registered on chain for _any_ stake pool:
+
+```bash
+cardano-cli query  protocol-state --testnet-magic 42 | grep <hex_pool_id>
+
+> <hex_pool_id>: 3,
+```
+The output is a map **pool_id** to **opcert_counter**; so in this example the current operational certificate counter registerd on chain is **3** 
+
+In addition, as stake pool owner/operator, you have the `cardano-cli query kes-period-info` command, which requires you to provide the operatinal certificate that you want to query. This gives you more detailed information:
+
 
 ```bash
 > cardano-cli query kes-period-info --testnet-magic 42 --op-cert-file node-spo3/opcert.cert
