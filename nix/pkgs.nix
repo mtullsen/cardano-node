@@ -34,8 +34,8 @@ let
   in
     { stateDir           ? customConfig.localCluster.stateDir
     , batchName          ? customConfig.localCluster.batchName
-    , profileNix         ? null
-    , profileName        ? if profileNix != null then profileNix.profileName
+    , profileData        ? null
+    , profileName        ? if profileData != null then profileData.profileName
                            else customConfig.localCluster.profileName
     , backendName        ? customConfig.localCluster.backendName
     , basePort           ? customConfig.localCluster.basePort
