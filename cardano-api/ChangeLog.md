@@ -86,6 +86,21 @@
   `genSignedNonZeroQuantity`. ([PR 5013](https://github.com/input-output-hk/cardano-node/pull/5013))
 - New 'Governance.Poll' API implementing [CIP-0094](https://github.com/cardano-foundation/CIPs/pull/496) ([PR 5050](https://github.com/input-output-hk/cardano-node/pull/5050))
 
+- **Breaking change**
+  New typesafe file types:
+  - New types: `File, FileDirection`
+  - New functions: `mapFile`, `onlyIn`, `onlyOut`
+  - Deleted types: `OutputFile`, use `File () Out` instead.
+  Some function signatures have changed to use `File` as a result:
+  - `writeByteStringFile`
+  - `writeByteStringOutput`
+  - `writeLazyByteStringFile`
+  - `writeLazyByteStringOutput`
+  - `writeTextFile`
+  - `writeTextOutput`
+  [PR 5105](https://github.com/input-output-hk/cardano-node/pull/5105)
+
+
 ### Bugs
 
 - Allow reading text envelopes from pipes ([PR 4384](https://github.com/input-output-hk/cardano-node/pull/4384))

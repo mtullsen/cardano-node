@@ -22,6 +22,15 @@
 
   See [CIP proposal](https://github.com/cardano-foundation/CIPs/pull/496) for details.
 
+- New typesafe file types.  Redefines the following types:
+  - `type SigningKeyFile = File (SigningKey ())`
+  - `type VerificationKeyFile = File (VerificationKey ())`
+  - `type TxBodyFile = File (TxBody ())`
+  - `type TxFile = File (Tx ())`
+  Construct values of these types with `File` constructor.
+  [PR 5105](https://github.com/input-output-hk/cardano-node/pull/5105)
+
+
 ### Features
 
 - Default to the ledger's CDDL format for transaction body creation by removing flags `--cddl-format` and `--cli-format` from `build` and `build-raw` ([PR 4303](https://github.com/input-output-hk/cardano-node/pull/4303))
