@@ -1226,7 +1226,7 @@ pPollAnswerIndex =
     <> Opt.help "The index of the chosen answer in the poll. Optional. Asked interactively if omitted."
     )
 
-pPollFile :: Parser (File () In)
+pPollFile :: Parser (File GovernancePoll In)
 pPollFile =
   Opt.strOption
     (  Opt.long "poll-file"
