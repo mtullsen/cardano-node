@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DerivingVia #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -44,19 +45,24 @@ import qualified Data.Text as Text
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Text.Builder
 import           Data.Word (Word64)
+import           Formatting (build, sformat)
 
+import           Cardano.Api.Eras
 import           Cardano.Api.HasTypeProxy
 import           Cardano.Api.Hash
 import           Cardano.Api.SerialiseCBOR
 import           Cardano.Api.SerialiseRaw
 import           Cardano.Api.SerialiseTextEnvelope
 import           Cardano.Api.SerialiseUsing
+import           Cardano.Api.Tx
+import           Cardano.Api.TxBody
 import           Cardano.Api.TxMetadata
 import           Cardano.Api.Utils
 
 import           Cardano.Binary (DecoderError(..))
 import           Cardano.Ledger.Crypto (HASH, StandardCrypto)
 import           Cardano.Ledger.Keys (KeyHash(..), KeyRole(..))
+import           Cardano.Ledger.Keys.WitVKey (witVKeyHash)
 
 import           Cardano.Crypto.Hash (hashFromBytes, hashToBytes, hashWith)
 import qualified Cardano.Crypto.Hash as Hash
@@ -259,8 +265,9 @@ instance SerialiseAsCBOR GovernancePollAnswer where
 
 data GovernancePollError
   = ErrGovernancePollMismatch
+  | ErrGovernancePollNoAnswer
+  | ErrGovernancePollMalformedAnswer DecoderError
   | ErrGovernancePollInvalidAnswer GovernancePollInvalidAnswerError
-  | ErrGovernancePollInvalidWitness
   deriving Show
 
 data GovernancePollInvalidAnswerError = GovernancePollInvalidAnswerError
@@ -274,6 +281,10 @@ renderGovernancePollError err =
   case err of
     ErrGovernancePollMismatch ->
       "Answer's poll doesn't match provided poll (hash mismatch)."
+    ErrGovernancePollNoAnswer ->
+      "No answer found in the provided transaction's metadata."
+    ErrGovernancePollMalformedAnswer decoderErr ->
+      "Malformed metadata; couldn't deserialise answer: " <> sformat build decoderErr
     ErrGovernancePollInvalidAnswer invalidAnswer ->
         mconcat
           [ "Invalid answer ("
@@ -291,9 +302,12 @@ renderGovernancePollError err =
               | (ix, answer) <- invalidAnswerAcceptableAnswers invalidAnswer
               ]
           ]
-    ErrGovernancePollInvalidWitness ->
-      "Invalid witness for the answer: the proof / signature doesn't hold."
 
+-- | Verify a poll against a given transaction and returns the signatories
+-- (verification key only) when valid.
+--
+-- Note: signatures aren't checked as it is assumed to have been done externally
+-- (the existence of the transaction in the ledger provides this guarantee).
 verifyPollAnswer
   :: GovernancePoll
   -> InAnyCardanoEra Tx
@@ -315,7 +329,12 @@ verifyPollAnswer poll (InAnyCardanoEra _era tx) = do
   pure [ witVKeyHash wit | (ShelleyKeyWitness _ wit) <- getTxWitnesses tx ]
  where
   extractPollAnswer (TxBody body) =
-    undefined
+    case txMetadata body of
+      TxMetadataNone ->
+        Left ErrGovernancePollNoAnswer
+      TxMetadataInEra _era metadata ->
+        left ErrGovernancePollMalformedAnswer $
+          deserialiseFromCBOR AsGovernancePollAnswer (serialiseToCBOR metadata)
 
 
 -- ----------------------------------------------------------------------------
