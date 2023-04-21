@@ -406,12 +406,8 @@
         cardanoNodeProject = (import ./nix/haskell.nix {
           inherit (final) haskell-nix;
           inherit (std) incl;
+          inherit CHaP;
         }).appendModule [
-          {
-            inputMap = {
-              "https://input-output-hk.github.io/cardano-haskell-packages" = CHaP;
-            };
-          }
           customConfig.haskellNix
         ];
         cardanoNodePackages = mkCardanoNodePackages final.cardanoNodeProject;
