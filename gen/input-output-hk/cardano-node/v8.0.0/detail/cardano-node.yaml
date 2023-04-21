@@ -8,7 +8,7 @@
     - cardano-api/test/Test/Cardano/Api/Typed/CBOR.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Governance.hs
     - cardano-node/src/Cardano/Node/Configuration/POM.hs
-  include: undecided
+  include: false
 - title: Allow renamed fields to exist if values the same
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5106
@@ -16,7 +16,7 @@
   mergedAt: "2023-04-17T16:36:15Z"
   files:
     - cardano-node/src/Cardano/Node/Configuration/POM.hs
-  include: undecided
+  include: true
 - title: 'workbench: updates'
   author: Kosyrev Serge
   url: https://github.com/input-output-hk/cardano-node/pull/5091
@@ -28,7 +28,8 @@
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Consensus.hs
     - nix/workbench/analyse/analyse.sh
     - nix/workbench/service/tracing.nix
-  include: undecided
+  ping: serge
+  include: true
 - title: Delete duplicate packages sort packages and imports
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5084
@@ -37,7 +38,7 @@
   files:
     - cardano-api/cardano-api.cabal
     - cardano-node/cardano-node.cabal
-  include: undecided
+  include: false
 - title: Split serialisation from IO
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5049
@@ -59,7 +60,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-node/test/Test/Cardano/Node/FilePermissions.hs
-  include: undecided
+  include: true
 - title: Use ouroboros-network-0.3.0.2 and ouroboros-network-framework-0.2.0.1
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/5018
@@ -77,7 +78,7 @@
     - flake.nix
     - nix/pkgs.nix
     - shell.nix
-  include: undecided
+  include: false
 - title: Integrate latest ledger dependencies
   author: Alexey Kuleshevich
   url: https://github.com/input-output-hk/cardano-node/pull/5013
@@ -163,7 +164,7 @@
     - docker-compose.yml
     - flake.lock
     - scripts/babbage/alonzo-babbage-test-genesis.json
-  include: undecided
+  include: true
 - title: Bump CHaP and remove most constraints from the cabal file
   author: Michael Peyton Jones
   url: https://github.com/input-output-hk/cardano-node/pull/5012
@@ -175,7 +176,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-tracer/cardano-tracer.cabal
     - flake.lock
-  include: undecided
+  include: false
 - title: Conway hard forks on prot-ver 9
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4988
@@ -184,7 +185,7 @@
   files:
     - cardano-api/src/Cardano/Api/LedgerState.hs
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
-  include: undecided
+  include: true
 - title: Reinstate -Werror for cardano-node and fix errors
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4968
@@ -193,7 +194,7 @@
   files:
     - cabal.project
     - cardano-node/src/Cardano/Node/Queries.hs
-  include: undecided
+  include: false
 - title: Remove unnecessary functions
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4967
@@ -204,7 +205,7 @@
     - cardano-api/src/Cardano/Api/TxBody.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/ChainDB.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
-  include: undecided
+  include: false
 - title: Backward compatibility for Prometheus metrics names
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4955
@@ -220,7 +221,7 @@
     - cardano-tracer/test/Cardano/Tracer/Test/Logs/Tests.hs
     - cardano-tracer/test/Cardano/Tracer/Test/Restart/Tests.hs
     - nix/nixos/cardano-tracer-service.nix
-  include: undecided
+  include: true
 - title: Take all dependencies from Hackage or CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4921
@@ -318,7 +319,7 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: false
 - title: Check CLI argument bounds
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4919
@@ -332,7 +333,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Parsers.hs
     - cardano-node/src/Cardano/Node/Handlers/Shutdown.hs
     - cardano-submit-api/src/Cardano/TxSubmit/CLI/Parsers.hs
-  include: undecided
+  include: true
 - title: Tip hash metrics
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4915
@@ -343,7 +344,7 @@
     - cardano-node/src/Cardano/Node/TraceConstraints.hs
     - cardano-node/src/Cardano/Tracing/HasIssuer.hs
     - cardano-node/src/Cardano/Tracing/Tracers.hs
-  include: undecided
+  include: true
 - title: Less verbose node-to-client and node-to-node version logging
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4911
@@ -352,7 +353,7 @@
   files:
     - cardano-node/ChangeLog.md
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
-  include: undecided
+  include: true
 - title: Added features to tracing
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4908
@@ -383,7 +384,7 @@
     - trace-dispatcher/test/Cardano/Logging/Test/Script.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-resources/test/trace-resources-test.hs
-  include: undecided
+  include: true
 - title: Reduce number of calls to toLedgerPParams
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4903
@@ -400,7 +401,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
-  include: undecided
+  include: true
 - title: Get AcceptedConnectionsLimit from the configuration
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4902
@@ -409,7 +410,7 @@
   files:
     - cardano-node/ChangeLog.md
     - cardano-node/src/Cardano/Node/Run.hs
-  include: undecided
+  include: true
 - title: coot/ouroboros network 0.3.0.1
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4891
@@ -422,7 +423,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-submit-api/cardano-submit-api.cabal
     - flake.lock
-  include: undecided
+  include: true
 - title: Remove use of multiline literals
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4889
@@ -457,7 +458,7 @@
     - cardano-testnet/test/Test/Cli/KesPeriodInfo.hs
     - trace-dispatcher/examples/Examples/TestObjects.hs
     - trace-dispatcher/src/Cardano/Logging/TraceDispatcherMessage.hs
-  include: undecided
+  include: true
 - title: Fix some markdown links
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4882
@@ -479,7 +480,7 @@
     - mlc_config.json
     - scripts/benchmarking/README.md
     - trace-forward/README.md
-  include: undecided
+  include: true
 - title: Detect invalid counter and certificate
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4880
@@ -494,7 +495,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-node/src/Cardano/Node/Pretty.hs
     - cardano-testnet/test/Test/Misc.hs
-  include: undecided
+  include: true
 - title: Simplify SerialiseAsRawBytes type class
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4876
@@ -525,7 +526,7 @@
     - cardano-cli/src/Cardano/CLI/Byron/Vote.hs
     - cardano-cli/test/Test/Golden/Byron/SigningKeys.hs
     - cardano-node/src/Cardano/Node/Protocol/Byron.hs
-  include: undecided
+  include: true
 - title: 'Revert #4855'
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4870
@@ -535,7 +536,7 @@
     - cardano-cli/cardano-cli.cabal
     - cardano-cli/test/Test/Cli/FilePermissions.hs
     - cardano-node/src/Cardano/Node/Run.hs
-  include: undecided
+  include: true
 - title: 'Remove cardano-cli''s dependency on cardano-node '
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4855
@@ -545,7 +546,7 @@
     - cardano-cli/cardano-cli.cabal
     - cardano-cli/test/Test/Cli/FilePermissions.hs
     - cardano-node/src/Cardano/Node/Run.hs
-  include: undecided
+  include: true
 - title: Node 1.35.5
   author: Samuel Leathers
   url: https://github.com/input-output-hk/cardano-node/pull/4851
@@ -562,7 +563,7 @@
     - cardano-tracer/cardano-tracer.cabal
     - docker-compose.yml
     - flake.lock
-  include: undecided
+  include: true
 - title: Remove reconfigure-hlint.sh script
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4838
@@ -627,7 +628,7 @@
     - trace-dispatcher/src/Cardano/Logging/DocuGenerator.hs
     - trace-forward/src/Trace/Forward/Utils/TraceObject.hs
     - trace-forward/test/Test/Trace/Forward/Protocol/DataPoint/Examples.hs
-  include: undecided
+  include: true
 - title: Optimized trace-dispatcher and tracing system
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4811
@@ -712,7 +713,7 @@
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-resources/src/Cardano/Logging/Resources/Types.hs
     - trace-resources/test/trace-resources-test.hs
-  include: undecided
+  include: true
 - title: Check cabal files in CI
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4766
@@ -741,7 +742,7 @@
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: true
 - title: Date ranges for copyright
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4755
@@ -808,7 +809,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: true
 - title: Cleaned cabal files
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4710
@@ -870,7 +871,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: true
 - title: Add support for ghc-9.2 and partial support for CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4701
@@ -948,7 +949,7 @@
     - nix/workbench/profiles/tracer-service.nix
     - trace-dispatcher/src/Cardano/Logging/Tracer/Composed.hs
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: Use JSON instances for NodeToNodeVersion & NodeToClientVersion
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4691
@@ -963,7 +964,7 @@
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Replace Data.Map with Data.Map.Strict
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4675
@@ -999,7 +1000,7 @@
     - trace-dispatcher/src/Cardano/Logging/DocuGenerator.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
     - trace-dispatcher/test/Cardano/Logging/Test/Config.hs
-  include: undecided
+  include: true
 - title: New cardano-cli ping command.
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4664
@@ -1013,7 +1014,7 @@
     - cardano-cli/src/Cardano/CLI/Run.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/NodeToNode.hs
     - flake.lock
-  include: undecided
+  include: true
 - title: Fixed format of network changelog item
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4651
@@ -1021,7 +1022,7 @@
   mergedAt: "2022-12-08T15:05:44Z"
   files:
     - cardano-node/ChangeLog.md
-  include: undecided
+  include: true
 - title: Improved error message for failed asset name decode
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4626
@@ -1054,7 +1055,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-cli/test/Test/Golden/Byron/SigningKeys.hs
     - cardano-node/src/Cardano/Node/Protocol/Byron.hs
-  include: undecided
+  include: true
 - title: Update release changelog
   author: Samuel Leathers
   url: https://github.com/input-output-hk/cardano-node/pull/4618
@@ -1062,7 +1063,7 @@
   mergedAt: "2022-11-05T10:41:42Z"
   files:
     - cardano-node/ChangeLog.md
-  include: undecided
+  include: true
 - title: Cardano Node 1.35.6 aka Single Relay P2P release
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4612
@@ -1109,7 +1110,7 @@
     - docker-compose.yml
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
-  include: undecided
+  include: true
 - title: Update ouroboros-network and cardano-ledger dependencies
   author: Joosep Jääger
   url: https://github.com/input-output-hk/cardano-node/pull/4608
@@ -1168,7 +1169,7 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: Fix missing trace-forward messages
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4581
@@ -1225,7 +1226,7 @@
     - trace-dispatcher/test/trace-dispatcher-test.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/src/Trace/Forward/Utils/TraceObject.hs
-  include: undecided
+  include: true
 - title: New p2p topology file format
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4563
@@ -1242,7 +1243,7 @@
     - cardano-node/test/Test/Cardano/Node/Json.hs
     - doc/getting-started/install.md
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Trace changes
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4561
@@ -1254,7 +1255,7 @@
     - cardano-node/src/Cardano/Node/Tracing/Tracers/P2P.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
-  include: undecided
+  include: true
 - title: Reduce exposed modules in cardano-api
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4546
@@ -1276,7 +1277,7 @@
     - cardano-node/src/Cardano/Node/Run.hs
     - cardano-node/src/Cardano/Node/Startup.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
-  include: undecided
+  include: true
 - title: Release 1.35.4
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4508
@@ -1383,7 +1384,7 @@
     - cardano-node/src/Cardano/Node/Tracing/Documentation.hs
     - cardano-node/src/Cardano/Node/Tracing/Era/Shelley.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers.hs
-  include: undecided
+  include: true
 - title: GHC 9.2.4 preparations
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4504
@@ -1432,7 +1433,7 @@
     - trace-dispatcher/src/Cardano/Logging/Trace.hs
     - trace-dispatcher/src/Cardano/Logging/Tracer/Composed.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: true
 - title: Removed a debug message
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4500
@@ -1440,7 +1441,7 @@
   mergedAt: "2022-10-14T07:51:44Z"
   files:
     - cardano-node/src/Cardano/Node/Run.hs
-  include: undecided
+  include: true
 - title: 'trace-dispatcher: optional EKG.Store.'
   author: Denis Shevchenko
   url: https://github.com/input-output-hk/cardano-node/pull/4499
@@ -1450,7 +1451,7 @@
     - cabal.project
     - cardano-node/src/Cardano/Node/Tracing/API.hs
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
-  include: undecided
+  include: true
 - title: Added changelogs for releases between 1.34.0 and 1.35.3
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4466
@@ -1461,7 +1462,7 @@
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
     - cardano-submit-api/CHANGELOG.md
-  include: undecided
+  include: true
 - title: Changed severity of 'DiffusionErrored' log message
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4465
@@ -1470,7 +1471,7 @@
   files:
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Diffusion.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
-  include: undecided
+  include: true
 - title: Refactor transaction build command
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4446
@@ -1520,7 +1521,7 @@
     - cardano-submit-api/src/Cardano/TxSubmit/Types.hs
     - cardano-submit-api/src/Cardano/TxSubmit/Util.hs
     - cardano-submit-api/src/Cardano/TxSubmit/Web.hs
-  include: undecided
+  include: true
 - title: Updating cabal version on master to 1.36.0
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4391
@@ -1534,7 +1535,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: 'cardano-node: provide default node name'
   author: Denis Shevchenko
   url: https://github.com/input-output-hk/cardano-node/pull/4366
@@ -1543,7 +1544,7 @@
   files:
     - cardano-node/src/Cardano/Node/Startup.hs
     - cardano-node/src/Cardano/Node/Tracing/API.hs
-  include: undecided
+  include: true
 - title: coot/small changes
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4363
@@ -1554,7 +1555,7 @@
     - cardano-node/src/Cardano/Node/Configuration/Topology.hs
     - cardano-node/src/Cardano/Node/Configuration/TopologyP2P.hs
     - cardano-node/src/Cardano/Node/Run.hs
-  include: undecided
+  include: true
 - title: Minimise config
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4351
@@ -1623,7 +1624,7 @@
     - trace-dispatcher/doc/trace-dispatcher.md
     - trace-dispatcher/src/Cardano/Logging/ConfigurationParser.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: true
 - title: 'cardano-node: sync percent fixed.'
   author: Denis Shevchenko
   url: https://github.com/input-output-hk/cardano-node/pull/4350
@@ -1631,7 +1632,7 @@
   mergedAt: "2022-08-17T20:03:49Z"
   files:
     - cardano-node/src/Cardano/Node/Tracing/StateRep.hs
-  include: undecided
+  include: true
 - title: Rename TestEnableDevelopmentHardForkEras and TestEnableDevelopmentNetworkProtocols
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4341
@@ -1655,7 +1656,7 @@
     - nix/workbench/service/nodes.nix
     - scripts/babbage/mkfiles.sh
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: 'cardano-node:  on startup, trace the configuration through the tracing system'
   author: Kosyrev Serge
   url: https://github.com/input-output-hk/cardano-node/pull/4295
@@ -1665,7 +1666,7 @@
     - cardano-node/src/Cardano/Node/Run.hs
     - cardano-node/src/Cardano/Node/Startup.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
-  include: undecided
+  include: true
 - title: Update changelogs with 1.35.3
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4269
@@ -1675,7 +1676,7 @@
     - cardano-api/ChangeLog.md
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
-  include: undecided
+  include: true
 - title: Bump block header protocol version
   author: Jared Corduan
   url: https://github.com/input-output-hk/cardano-node/pull/4260
@@ -1683,7 +1684,7 @@
   mergedAt: "2022-08-04T13:27:54Z"
   files:
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
-  include: undecided
+  include: true
 - title: update ledger to the tip of release/1.0.0
   author: Jared Corduan
   url: https://github.com/input-output-hk/cardano-node/pull/4242
@@ -1702,7 +1703,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: Release 1.35.2
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4220
@@ -1721,7 +1722,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: bump babbage to report it supports 7.1 in block header
   author: Samuel Leathers
   url: https://github.com/input-output-hk/cardano-node/pull/4211
@@ -1729,7 +1730,7 @@
   mergedAt: "2022-07-21T17:40:57Z"
   files:
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
-  include: undecided
+  include: true
 - title: New query pool-state command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4170
@@ -1745,7 +1746,7 @@
     - cardano-node/src/Cardano/Node/Tracing/Documentation.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/P2P.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
-  include: undecided
+  include: true
 - title: CAD-4727 Change the default UTxO HD backend to `InMemory`.
   author: Joris Dral
   url: https://github.com/input-output-hk/cardano-node/pull/4156
@@ -1756,7 +1757,7 @@
     - cardano-node/src/Cardano/Node/Configuration/POM.hs
     - cardano-node/src/Cardano/Node/Parsers.hs
     - cardano-node/test/Test/Cardano/Node/POM.hs
-  include: undecided
+  include: true
 - title: CAD-4728  Change the units for the LMDB `mapsize` option to GB and let the parameter be a number
   author: Joris Dral
   url: https://github.com/input-output-hk/cardano-node/pull/4155
@@ -1770,7 +1771,7 @@
     - cardano-node/src/Cardano/Node/Parsers.hs
     - cardano-node/src/Cardano/Node/Run.hs
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Added changelogs and updated cabal files for 1.35.1
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4153
@@ -1788,7 +1789,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: Add utxoCostPerByte protocol parameter
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4141
@@ -1805,7 +1806,7 @@
     - cardano-cli/test/data/golden/alonzo/transaction-view.out
     - cardano-node/src/Cardano/Node/Tracing/Era/Shelley.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Shelley.hs
-  include: undecided
+  include: true
 - title: Adding changelogs for 1.35.0
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4136
@@ -1816,7 +1817,7 @@
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
     - cardano-submit-api/CHANGELOG.md
-  include: undecided
+  include: true
 - title: Update cardano-ledger and ouroboros-network dependencies
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4118
@@ -1833,7 +1834,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/P2P.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
-  include: undecided
+  include: true
 - title: Restructure the namespace
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4117
@@ -1868,7 +1869,7 @@
     - trace-dispatcher/test/Cardano/Logging/Test/Script.hs
     - trace-resources/src/Cardano/Logging/Resources/Types.hs
     - trace-resources/test/trace-resources-test.hs
-  include: undecided
+  include: true
 - title: 'RTView: MVP'
   author: Denis Shevchenko
   url: https://github.com/input-output-hk/cardano-node/pull/4105
@@ -1913,7 +1914,7 @@
     - cardano-tracer/src/Cardano/Tracer/Run.hs
     - cardano-tracer/test/Cardano/Tracer/Test/Acceptor.hs
     - doc/new-tracing/tracers_doc_generated.md
-  include: undecided
+  include: true
 - title: CAD-4437 Include UTxO HD installation/usage instructions in READMEs
   author: Joris Dral
   url: https://github.com/input-output-hk/cardano-node/pull/4079
@@ -1927,7 +1928,7 @@
     - doc/getting-started/building-the-node-on-windows.md
     - doc/getting-started/install.md
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: 'Disable development eras configuration flag '
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4030
@@ -1937,7 +1938,7 @@
     - cardano-api/src/Cardano/Api/Script.hs
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Update index state to 2022-07-01T00:00:00Z
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/3862
@@ -1968,4 +1969,4 @@
     - cardano-testnet/test/Test/Util.hs
     - flake.lock
     - nix/haskell.nix
-  include: undecided
+  include: true
