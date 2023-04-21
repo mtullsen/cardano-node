@@ -283,6 +283,20 @@ let
         # https://developer.hashicorp.com/nomad/docs/job-specification/task
         task.${taskName} = taskDefaults // {
 
+          # The affinity block allows operators to express placement preference
+          # for a set of nodes. Affinities may be expressed on attributes or
+          # client metadata. Additionally affinities may be specified at the
+          # job, group, or task levels for ultimate flexibility.
+          affinity =
+            let region = nodeSpec.region;
+            in if region == null || region == "loopback"
+              then null
+              else
+                { attribute = "\${node.datacenter}";
+                  value     = region;
+                }
+          ;
+
           # The meta stanza allows for user-defined arbitrary key-value pairs.
           # It is possible to use the meta stanza at the job, group, or task
           # level.
@@ -642,7 +656,8 @@ let
               "perf-tracer"                          # serviceName
               "tracer"                               # portName (can't have "-")
               0                                      # portNum
-              {};                                    # node-specs
+              # TODO: Which region?
+              {region=null;};                        # node-specs
           }
         ]
         ++
