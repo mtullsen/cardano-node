@@ -579,12 +579,34 @@ module Cardano.Api (
     -- * Node interaction
     -- | Operations that involve talking to a local Cardano node.
 
+    -- ** Node Config
+    -- *** Network Config
+    NetworkConfigFile (..),
+    readNetworkConfig,
+    -- *** Genesis Config
+    GenesisConfig (..),
+    readCardanoGenesisConfig,
+    -- **** Byron Genesis Config
+    readByronGenesisConfig,
+    -- **** Shelley Genesis Config
+    ShelleyConfig (..),
+    GenesisHashShelley (..),
+    readShelleyGenesisConfig,
+    -- **** Alonzo Genesis Config
+    GenesisHashAlonzo (..),
+    readAlonzoGenesisConfig,
+    -- **** Conway Genesis Config
+    GenesisHashConway (..),
+    readConwayGenesisConfig,
+    -- *** Environment
+    Env(..),
+    genesisConfigToEnv,
+
     -- ** Queries
     -- ** Submitting transactions
 
     -- ** High level protocol interaction with a Cardano node
     -- *** Initialization / Accumulation
-    Env(..),
     envSecurityParam,
     LedgerState(..),
     initialLedgerState,
