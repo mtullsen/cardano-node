@@ -580,12 +580,13 @@ module Cardano.Api (
     -- | Operations that involve talking to a local Cardano node.
 
     -- ** Node Config
-    -- *** Network Config
-    NetworkConfigFile (..),
-    readNetworkConfig,
+    NodeConfig (..),
+    NodeConfigFile (..),
+    readNodeConfig,
     -- *** Genesis Config
     GenesisConfig (..),
     readCardanoGenesisConfig,
+    mkProtocolInfoCardano,
     -- **** Byron Genesis Config
     readByronGenesisConfig,
     -- **** Shelley Genesis Config
