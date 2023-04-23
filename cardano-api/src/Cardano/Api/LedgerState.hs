@@ -206,6 +206,9 @@ data InitialLedgerStateError
   -- ^ Failed to read or parse a genesis file linked from the network config file.
   | ILSELedgerConsensusConfig GenesisConfigError
   -- ^ Failed to derive the Ledger or Consensus config.
+  deriving Show
+
+instance Exception InitialLedgerStateError
 
 renderInitialLedgerStateError :: InitialLedgerStateError -> Text
 renderInitialLedgerStateError ilse = case ilse of
@@ -231,6 +234,7 @@ data LedgerStateError
       ChainPoint -- ^ Rollback was attempted to this point.
   deriving (Show)
 
+instance Exception LedgerStateError
 
 
 renderLedgerStateError :: LedgerStateError -> Text
@@ -1103,6 +1107,9 @@ data GenesisConfigError
   | NEAlonzoConfig !FilePath !Text
   | NEConwayConfig !FilePath !Text
   | NECardanoConfig !Text
+  deriving Show
+
+instance Exception GenesisConfigError
 
 renderGenesisConfigError :: GenesisConfigError -> Text
 renderGenesisConfigError ne =
@@ -1200,6 +1207,8 @@ data ShelleyGenesisError
      | ShelleyGenesisDecodeError !FilePath !Text
      deriving Show
 
+instance Exception ShelleyGenesisError
+
 renderShelleyGenesisError :: ShelleyGenesisError -> Text
 renderShelleyGenesisError sge =
     case sge of
@@ -1244,6 +1253,8 @@ data AlonzoGenesisError
      | AlonzoGenesisDecodeError !FilePath !Text
      deriving Show
 
+instance Exception AlonzoGenesisError
+
 renderAlonzoGenesisError :: AlonzoGenesisError -> Text
 renderAlonzoGenesisError sge =
     case sge of
@@ -1287,6 +1298,8 @@ data ConwayGenesisError
      | ConwayGenesisHashMismatch !GenesisHashConway !GenesisHashConway -- actual, expected
      | ConwayGenesisDecodeError !FilePath !Text
      deriving Show
+
+instance Exception ConwayGenesisError
 
 renderConwayGenesisError :: ConwayGenesisError -> Text
 renderConwayGenesisError sge =
