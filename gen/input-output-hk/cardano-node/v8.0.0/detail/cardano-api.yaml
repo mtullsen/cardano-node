@@ -8,7 +8,7 @@
     - cardano-api/test/Test/Cardano/Api/Typed/CBOR.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Governance.hs
     - cardano-node/src/Cardano/Node/Configuration/POM.hs
-  include: undecided
+  include: false
 - title: 'Add new interim governance commands: {create, answer, verify}-poll'
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/5112
@@ -49,7 +49,7 @@
     - cardano-cli/test/data/golden/shelley/governance/poll.json
     - cardano-cli/test/data/golden/shelley/governance/vrf.sk
     - cardano-cli/test/data/golden/shelley/governance/vrf.vk
-  include: undecided
+  include: true
 - title: Fix import warning
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5087
@@ -57,7 +57,7 @@
   mergedAt: "2023-04-12T21:59:57Z"
   files:
     - cardano-api/src/Cardano/Api/IO.hs
-  include: undecided
+  include: false
 - title: Expose UsingRawBytes et al types
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/5086
@@ -65,7 +65,7 @@
   mergedAt: "2023-04-15T04:06:05Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Expose SerialiseAsRawBytesError in Cardano.Api
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/5085
@@ -73,7 +73,7 @@
   mergedAt: "2023-04-15T04:06:59Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Delete duplicate packages sort packages and imports
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5084
@@ -82,8 +82,9 @@
   files:
     - cardano-api/cardano-api.cabal
     - cardano-node/cardano-node.cabal
-  include: undecided
-- title: Introduce new AnyShelleyBasedEra type and simplify CDDL tests.
+  include: false
+- title: Simplify cddl tests
+  alt-title: Introduce new `AnyShelleyBasedEra` type and simplify CDDL tests.
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5072
   number: 5072
@@ -96,7 +97,7 @@
     - cardano-api/test/Test/Cardano/Api/Eras.hs
     - cardano-api/test/Test/Cardano/Api/Typed/CBOR.hs
     - cardano-api/test/cardano-api-test.hs
-  include: undecided
+  include: false
 - title: New genCardanoKeyWitness function
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5071
@@ -104,7 +105,7 @@
   mergedAt: "2023-04-11T15:47:58Z"
   files:
     - cardano-api/gen/Test/Gen/Cardano/Api/Typed.hs
-  include: undecided
+  include: true
 - title: Replace roundtripCBOR with trippingCbor
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5069
@@ -119,7 +120,7 @@
     - cardano-api/gen/Test/Hedgehog/Roundtrip/CBOR.hs
     - cardano-api/test/Test/Cardano/Api/KeysByron.hs
     - cardano-api/test/Test/Cardano/Api/Typed/CBOR.hs
-  include: undecided
+  include: true
 - title: Remove non-round-trippable value TxInsReferenceNone for babbage onwards in generator
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5064
@@ -127,7 +128,7 @@
   mergedAt: "2023-04-13T02:35:39Z"
   files:
     - cardano-api/gen/Test/Gen/Cardano/Api/Typed.hs
-  include: undecided
+  include: true
 - title: Improve roundtrip functions to report annotations on callsite
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5063
@@ -139,7 +140,7 @@
     - cardano-api/src/Cardano/Api/Address.hs
     - cardano-api/src/Cardano/Api/HasTypeProxy.hs
     - cardano-api/src/Cardano/Api/Script.hs
-  include: undecided
+  include: true
 - title: Define Functor instance for FileError
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5057
@@ -148,7 +149,7 @@
   files:
     - cardano-api/src/Cardano/Api/Error.hs
     - cardano-api/src/Cardano/Api/Keys/Read.hs
-  include: undecided
+  include: true
 - title: Split serialisation from IO
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5049
@@ -170,7 +171,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-node/test/Test/Cardano/Node/FilePermissions.hs
-  include: undecided
+  include: true
 - title: Remove use of AcquireFailure type
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5040
@@ -179,7 +180,7 @@
   files:
     - cardano-api/src/Cardano/Api/IPC.hs
     - cardano-api/src/Cardano/Api/IPC/Monad.hs
-  include: undecided
+  include: false
 - title: Simplify implementation of executeQueryAnyMode
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5038
@@ -187,7 +188,7 @@
   mergedAt: "2023-03-31T07:39:30Z"
   files:
     - cardano-api/src/Cardano/Api/Convenience/Query.hs
-  include: undecided
+  include: false
 - title: Use ouroboros-network-0.3.0.2 and ouroboros-network-framework-0.2.0.1
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/5018
@@ -205,7 +206,7 @@
     - flake.nix
     - nix/pkgs.nix
     - shell.nix
-  include: undecided
+  include: false
 - title: Integrate latest ledger dependencies
   author: Alexey Kuleshevich
   url: https://github.com/input-output-hk/cardano-node/pull/5013
@@ -291,7 +292,7 @@
     - docker-compose.yml
     - flake.lock
     - scripts/babbage/alonzo-babbage-test-genesis.json
-  include: undecided
+  include: true
 - title: Bump CHaP and remove most constraints from the cabal file
   author: Michael Peyton Jones
   url: https://github.com/input-output-hk/cardano-node/pull/5012
@@ -303,7 +304,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-tracer/cardano-tracer.cabal
     - flake.lock
-  include: undecided
+  include: false
 - title: Add missing imports
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5003
@@ -311,7 +312,7 @@
   mergedAt: "2023-03-19T12:44:24Z"
   files:
     - cardano-api/src/Cardano/Api/Block.hs
-  include: undecided
+  include: false
 - title: Script data serialisation
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5002
@@ -322,7 +323,7 @@
     - cardano-api/src/Cardano/Api/ScriptData.hs
     - cardano-api/test/Test/Cardano/Api/Typed/CBOR.hs
     - cardano-api/test/Test/Cardano/Api/Typed/Script.hs
-  include: undecided
+  include: true
 - title: Add LedgerStateBabbage and LedgerStateConway pattern synonyms
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5001
@@ -333,7 +334,7 @@
     - cardano-api/src/Cardano/Api/Orphans.hs
     - cardano-client-demo/StakeCredentialHistory.hs
     - cardano-client-demo/cardano-client-demo.cabal
-  include: undecided
+  include: true
 - title: Conway hard forks on prot-ver 9
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4988
@@ -342,7 +343,7 @@
   files:
     - cardano-api/src/Cardano/Api/LedgerState.hs
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
-  include: undecided
+  include: true
 - title: Remove unnecessary functions
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4967
@@ -353,7 +354,7 @@
     - cardano-api/src/Cardano/Api/TxBody.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/ChainDB.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
-  include: undecided
+  include: false
 - title: Guard against overflows in Shelley TxIns
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4956
@@ -361,7 +362,7 @@
   mergedAt: "2023-03-29T00:42:10Z"
   files:
     - cardano-api/src/Cardano/Api/TxBody.hs
-  include: undecided
+  include: true
 - title: Remove duplicate scripts when building transaction body for Mary, Alonzo and Babbage
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4953
@@ -369,7 +370,8 @@
   mergedAt: "2023-03-08T23:07:45Z"
   files:
     - cardano-api/src/Cardano/Api/TxBody.hs
-  include: undecided
+  include: true
+  # Should this be added to `cardano-cli` as well?
 - title: Add event.type to concurrency group
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4947
@@ -404,7 +406,7 @@
     - cardano-testnet/test/Test/ShutdownOnSlotSynced.hs
     - doc/getting-started/launching-a-testnet.md
     - flake.lock
-  include: undecided
+  include: false
 - title: Combinators for TxBodyContent and related types
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4941
@@ -417,7 +419,7 @@
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/Fees.hs
     - cardano-api/src/Cardano/Api/TxBody.hs
-  include: undecided
+  include: true
 - title: Preserve ScriptData bytes fix
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4926
@@ -427,7 +429,7 @@
     - cardano-api/src/Cardano/Api/ScriptData.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Read.hs
     - scripts/babbage/example-babbage-script-usage.sh
-  include: undecided
+  include: true
 - title: Take all dependencies from Hackage or CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4921
@@ -525,10 +527,12 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: false
 - title: Check CLI argument bounds
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4919
+  notes: |
+    New bounded function.
   number: 4919
   mergedAt: "2023-03-03T08:10:33Z"
   files:
@@ -539,7 +543,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Parsers.hs
     - cardano-node/src/Cardano/Node/Handlers/Shutdown.hs
     - cardano-submit-api/src/Cardano/TxSubmit/CLI/Parsers.hs
-  include: undecided
+  include: true
 - title: Fix key non extended key for StakeExtendedVerificationKeyShelley_ed25519_bip32 envelope
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4918
@@ -553,7 +557,7 @@
     - cardano-cli/test/data/golden/key/non-extended-keys/non-extended-shelley.000.vkey
     - cardano-cli/test/data/golden/key/non-extended-keys/non-extended-stake.000.vkey
     - cardano-cli/test/data/golden/key/non-extended-keys/stake.000.vkey
-  include: undecided
+  include: true
 - title: Reduce number of calls to toLedgerPParams
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4903
@@ -570,7 +574,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
     - cardano-node/src/Cardano/Tracing/Startup.hs
-  include: undecided
+  include: true
 - title: Re-add support for decoding GenesisExtendedKey text envelope
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4894
@@ -583,7 +587,7 @@
     - cardano-cli/test/Test/Golden/Key/NonExtendedKey.hs
     - cardano-cli/test/cardano-cli-golden.hs
     - cardano-cli/test/data/golden/key/non-extended-keys/shelley.000.vkey
-  include: undecided
+  include: true
 - title: Remove use of multiline literals
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4889
@@ -618,7 +622,7 @@
     - cardano-testnet/test/Test/Cli/KesPeriodInfo.hs
     - trace-dispatcher/examples/Examples/TestObjects.hs
     - trace-dispatcher/src/Cardano/Logging/TraceDispatcherMessage.hs
-  include: undecided
+  include: false
 - title: Preserve `ScriptData` bytes with `HashableScriptData`
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4886
@@ -647,7 +651,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Read.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
-  include: undecided
+  include: true
 - title: Disallow empty cost model for create update proposal
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4885
@@ -656,7 +660,7 @@
   files:
     - cardano-api/ChangeLog.md
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Governance.hs
-  include: undecided
+  include: true
 - title: Update changelog with PR4788 changes
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4881
@@ -664,7 +668,7 @@
   mergedAt: "2023-02-26T11:06:13Z"
   files:
     - cardano-api/ChangeLog.md
-  include: undecided
+  include: false
 - title: Detect invalid counter and certificate
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4880
@@ -679,7 +683,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-node/src/Cardano/Node/Pretty.hs
     - cardano-testnet/test/Test/Misc.hs
-  include: undecided
+  include: true
 - title: Simplify SerialiseAsRawBytes type class
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4876
@@ -710,7 +714,7 @@
     - cardano-cli/src/Cardano/CLI/Byron/Vote.hs
     - cardano-cli/test/Test/Golden/Byron/SigningKeys.hs
     - cardano-node/src/Cardano/Node/Protocol/Byron.hs
-  include: undecided
+  include: true
 - title: Modify constructBalancedTx to take LedgerEpochInfo
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4858
@@ -723,7 +727,7 @@
     - cardano-api/src/Cardano/Api/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Remove NoImplicitPrelude
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4857
@@ -830,7 +834,7 @@
     - cardano-cli/test/Test/Golden/Shelley/TextView/DecodeCbor.hs
     - cardano-cli/test/Test/Golden/Shelley/Transaction/Assemble.hs
     - cardano-cli/test/Test/Golden/Shelley/Transaction/Build.hs
-  include: undecided
+  include: false
 - title: Node 1.35.5
   author: Samuel Leathers
   url: https://github.com/input-output-hk/cardano-node/pull/4851
@@ -847,7 +851,7 @@
     - cardano-tracer/cardano-tracer.cabal
     - docker-compose.yml
     - flake.lock
-  include: undecided
+  include: true
 - title: Fix Data.Aeson.Types import
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4841
@@ -855,7 +859,7 @@
   mergedAt: "2023-01-25T10:18:24Z"
   files:
     - cardano-api/src/Cardano/Api/LedgerState.hs
-  include: undecided
+  include: false
 - title: Remove reconfigure-hlint.sh script
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4838
@@ -920,7 +924,7 @@
     - trace-dispatcher/src/Cardano/Logging/DocuGenerator.hs
     - trace-forward/src/Trace/Forward/Utils/TraceObject.hs
     - trace-forward/test/Test/Trace/Forward/Protocol/DataPoint/Examples.hs
-  include: undecided
+  include: false
 - title: 'Implement ADR-2: Restructure modules for generators'
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4833
@@ -949,7 +953,7 @@
     - cardano-api/test/Test/Cardano/Api/Typed/Value.hs
     - cardano-cli/test/Test/Cli/JSON.hs
     - cardano-cli/test/Test/Cli/MultiAssetParsing.hs
-  include: undecided
+  include: true
 - title: Remove NoImplicitPrelude from cardano-api
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4832
@@ -1031,7 +1035,7 @@
     - cardano-api/test/Test/Cardano/Api/Typed/TxBody.hs
     - cardano-api/test/Test/Cardano/Api/Typed/Value.hs
     - cardano-api/test/cardano-api-test.hs
-  include: undecided
+  include: false
 - title: Add ReaderT of NodeToClientVersion to LocalStateQueryExpr
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4809
@@ -1041,7 +1045,7 @@
     - cardano-api/cardano-api.cabal
     - cardano-api/src/Cardano/Api/IPC/Monad.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
-  include: undecided
+  include: true
 - title: Use hoistMaybe
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4808
@@ -1050,9 +1054,20 @@
   files:
     - cardano-api/src/Cardano/Api/Convenience/Query.hs
     - cardano-api/src/Cardano/Api/Utils.hs
-  include: undecided
+  include: false
 - title: Better error message for query utxo without oops
   author: John Ky
+  notes: |
+    New type exports:
+    * NodeToClientVersion
+    * UnsupportedNtcVersionError
+    New functions:
+    * getNtcVersion
+    Function type changes:
+    * queryExpr
+    * determineEraExpr
+    New error constructor:
+    * ShelleyQueryCmdUnsupportedNtcVersion
   url: https://github.com/input-output-hk/cardano-node/pull/4788
   number: 4788
   mergedAt: "2023-01-23T21:01:10Z"
@@ -1064,18 +1079,25 @@
     - cardano-api/src/Cardano/Api/IPC/Monad.hs
     - cardano-cli/cardano-cli.cabal
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
-  include: undecided
+  include: true
 - title: New NodeToClientVersionOf typeclass
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4787
   number: 4787
   mergedAt: "2023-01-19T00:57:05Z"
+  notes: |
+    New type classes:
+    * NodeToClientVersionOf
+    New types:
+    * MinNodeToClientVersion
+    New error types:
+    * UnsupportedNtcVersionError
   files:
     - cardano-api/cardano-api.cabal
     - cardano-api/src/Cardano/Api/Eras.hs
     - cardano-api/src/Cardano/Api/IPC/Version.hs
     - cardano-api/src/Cardano/Api/Query.hs
-  include: undecided
+  include: true
 - title: Straight line error handling
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4785
@@ -1084,16 +1106,19 @@
   files:
     - cardano-api/src/Cardano/Api/Convenience/Query.hs
     - cardano-api/src/Cardano/Api/Utils.hs
-  include: undecided
+  include: false
 - title: Implement signArbitraryBytesKes for use in Mithril
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4779
   number: 4779
   mergedAt: "2023-01-17T19:55:37Z"
+  notes: |
+    New function:
+    * signArbitraryBytesKes
   files:
     - cardano-api/src/Cardano/Api/Keys/Praos.hs
     - cardano-api/src/Cardano/Api/Shelley.hs
-  include: undecided
+  include: true
 - title: Check cabal files in CI
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4766
@@ -1122,12 +1147,13 @@
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Remove simple script distinction
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4763
   number: 4763
   mergedAt: "2023-03-08T16:08:00Z"
+  notes: Remove distinction between multisig and timelock scripts
   files:
     - cardano-api/ChangeLog.md
     - cardano-api/gen/Test/Gen/Cardano/Api/Typed.hs
@@ -1139,7 +1165,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Parsers.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Read.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Date ranges for copyright
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4755
@@ -1206,7 +1232,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Optimise query stake-snapshot command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4754
@@ -1219,7 +1245,7 @@
     - cardano-api/src/Cardano/Api/Shelley.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
-  include: undecided
+  include: true
 - title: Export SubmitResult from Cardano.Api
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4753
@@ -1227,7 +1253,7 @@
   mergedAt: "2023-01-11T14:58:32Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Cleaned cabal files
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4710
@@ -1289,7 +1315,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Add support for ghc-9.2 and partial support for CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4701
@@ -1367,7 +1393,7 @@
     - nix/workbench/profiles/tracer-service.nix
     - trace-dispatcher/src/Cardano/Logging/Tracer/Composed.hs
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: Move signing key reading to cardano-api
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4698
@@ -1403,7 +1429,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Key.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Node.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Read.hs
-  include: undecided
+  include: true
 - title: Append tx output in cli transaction build command
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4696
@@ -1411,7 +1437,7 @@
   mergedAt: "2022-12-07T20:29:45Z"
   files:
     - cardano-api/src/Cardano/Api/Fees.hs
-  include: undecided
+  include: true
 - title: '[cardano-api] Add ToJSON/FromJSON instances for ChainPoint'
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/4686
@@ -1419,7 +1445,7 @@
   mergedAt: "2023-03-19T07:17:17Z"
   files:
     - cardano-api/src/Cardano/Api/Block.hs
-  include: undecided
+  include: true
 - title: '[cardano-api] Add an Ord ChainPoint instance'
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/4685
@@ -1427,7 +1453,7 @@
   mergedAt: "2022-12-08T12:29:20Z"
   files:
     - cardano-api/src/Cardano/Api/Block.hs
-  include: undecided
+  include: true
 - title: '[cardano-api] Derive Eq instance for AcquiringFailure'
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/4683
@@ -1436,7 +1462,7 @@
   files:
     - cardano-api/ChangeLog.md
     - cardano-api/src/Cardano/Api/IPC.hs
-  include: undecided
+  include: true
 - title: Export `fromShelleyBasedScript` from Cardano.Api
   author: Markus Läll
   url: https://github.com/input-output-hk/cardano-node/pull/4682
@@ -1444,7 +1470,7 @@
   mergedAt: "2023-03-19T07:34:55Z"
   files:
     - cardano-api/src/Cardano/Api/Shelley.hs
-  include: undecided
+  include: true
 - title: Replace Data.Map with Data.Map.Strict
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4675
@@ -1480,7 +1506,7 @@
     - trace-dispatcher/src/Cardano/Logging/DocuGenerator.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
     - trace-dispatcher/test/Cardano/Logging/Test/Config.hs
-  include: undecided
+  include: true
 - title: Implement Cardano.Api.DeserialiseAnyOf
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4639
@@ -1502,7 +1528,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Pool.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
-  include: undecided
+  include: true
 - title: Expose TextEnvelopeCddl from Cardano.Api
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4635
@@ -1510,7 +1536,7 @@
   mergedAt: "2022-11-15T13:32:54Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Expose txScriptValidityToScriptValidity in Cardano.Api
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4628
@@ -1518,7 +1544,7 @@
   mergedAt: "2022-11-09T18:18:13Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Improved error message for failed asset name decode
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4626
@@ -1551,7 +1577,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - cardano-cli/test/Test/Golden/Byron/SigningKeys.hs
     - cardano-node/src/Cardano/Node/Protocol/Byron.hs
-  include: undecided
+  include: true
 - title: Handle pipes
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4625
@@ -1568,7 +1594,7 @@
     - cardano-cli/test/Test/OptParse.hs
     - cardano-cli/test/cardano-cli-test.hs
     - cardano-testnet/cardano-testnet.cabal
-  include: undecided
+  include: true
 - title: Cardano Node 1.35.6 aka Single Relay P2P release
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4612
@@ -1615,7 +1641,7 @@
     - docker-compose.yml
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
-  include: undecided
+  include: true
 - title: Update ouroboros-network and cardano-ledger dependencies
   author: Joosep Jääger
   url: https://github.com/input-output-hk/cardano-node/pull/4608
@@ -1674,7 +1700,7 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: export RawBytesHexError
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4599
@@ -1685,7 +1711,7 @@
     - cardano-api/src/Cardano/Api/Address.hs
     - cardano-api/src/Cardano/Api/Script.hs
     - cardano-api/src/Cardano/Api/SerialiseRaw.hs
-  include: undecided
+  include: true
 - title: cardano-api module reshuffle
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4593
@@ -1700,7 +1726,7 @@
     - cardano-api/src/Cardano/Api/Shelley.hs
     - cardano-api/src/Cardano/Api/TxSubmit/ErrorRender.hs
     - cardano-api/src/Cardano/Api/TxSubmit/Types.hs
-  include: undecided
+  include: true
 - title: Add Ord instance for AddressInEra
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4587
@@ -1708,7 +1734,7 @@
   mergedAt: "2022-11-07T19:36:38Z"
   files:
     - cardano-api/src/Cardano/Api/Address.hs
-  include: undecided
+  include: true
 - title: Add ToJSON and FromJSON instances for Address
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4568
@@ -1717,7 +1743,7 @@
   files:
     - cardano-api/src/Cardano/Api/Address.hs
     - cardano-api/test/Test/Cardano/Api/Typed/Address.hs
-  include: undecided
+  include: true
 - title: Export TxIns type alias
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4565
@@ -1726,7 +1752,7 @@
   files:
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/TxBody.hs
-  include: undecided
+  include: true
 - title: export IsPlutusScriptLanguage
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4554
@@ -1735,7 +1761,7 @@
   files:
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/Script.hs
-  include: undecided
+  include: true
 - title: Reduce exposed modules in cardano-api
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4546
@@ -1757,7 +1783,7 @@
     - cardano-node/src/Cardano/Node/Run.hs
     - cardano-node/src/Cardano/Node/Startup.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/Startup.hs
-  include: undecided
+  include: true
 - title: 'cardano-api: Export more generators'
   author: Marc Fontaine
   url: https://github.com/input-output-hk/cardano-node/pull/4534
@@ -1765,7 +1791,7 @@
   mergedAt: "2022-10-25T10:08:18Z"
   files:
     - cardano-api/gen/Gen/Cardano/Api/Typed.hs
-  include: undecided
+  include: true
 - title: Condense Read and Validation modules in cardano-cli
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4516
@@ -1785,7 +1811,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Script.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
     - cardano-cli/test/Test/OptParse.hs
-  include: undecided
+  include: true
 - title: Release 1.35.4
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4508
@@ -1892,7 +1918,7 @@
     - cardano-node/src/Cardano/Node/Tracing/Documentation.hs
     - cardano-node/src/Cardano/Node/Tracing/Era/Shelley.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers.hs
-  include: undecided
+  include: true
 - title: GHC 9.2.4 preparations
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4504
@@ -1941,7 +1967,7 @@
     - trace-dispatcher/src/Cardano/Logging/Trace.hs
     - trace-dispatcher/src/Cardano/Logging/Tracer/Composed.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: false
 - title: Fix 4493 bug - TxWitness text envelope format does not roundtrip in Shelley era
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4501
@@ -1950,7 +1976,7 @@
   files:
     - cardano-api/src/Cardano/Api/Tx.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Export TxTotalAndReturnCollateralSupportedInEra from Cardano.Api
   author: Sjoerd Visscher
   url: https://github.com/input-output-hk/cardano-node/pull/4496
@@ -1958,7 +1984,7 @@
   mergedAt: "2022-11-09T19:13:53Z"
   files:
     - cardano-api/src/Cardano/Api.hs
-  include: undecided
+  include: true
 - title: Separate IO from txBuild and txBuildRaw functions
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4491
@@ -1969,7 +1995,7 @@
     - cardano-api/src/Cardano/Api/Convenience/Construction.hs
     - cardano-api/src/Cardano/Api/Fees.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Update error message for incorrectly witnessed collateral inputs
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4484
@@ -1979,7 +2005,7 @@
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/Convenience/Construction.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Return `Lovelace` for `calculateMinimumUTxO`
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4482
@@ -1989,7 +2015,7 @@
     - cardano-api/ChangeLog.md
     - cardano-api/src/Cardano/Api/Fees.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Separate validation and creation of transaction bodies
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4468
@@ -2006,7 +2032,7 @@
     - cardano-api/test/Test/Cardano/Api/Typed/TxBody.hs
     - cardano-cli/src/Cardano/CLI/Byron/Tx.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Added changelogs for releases between 1.34.0 and 1.35.3
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4466
@@ -2017,7 +2043,7 @@
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
     - cardano-submit-api/CHANGELOG.md
-  include: undecided
+  include: false
 - title: Auto-balance multiasset transactions
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4450
@@ -2026,7 +2052,7 @@
   files:
     - cardano-api/ChangeLog.md
     - cardano-api/src/Cardano/Api/Fees.hs
-  include: undecided
+  include: true
 - title: Refactor transaction build command
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4446
@@ -2076,7 +2102,7 @@
     - cardano-submit-api/src/Cardano/TxSubmit/Types.hs
     - cardano-submit-api/src/Cardano/TxSubmit/Util.hs
     - cardano-submit-api/src/Cardano/TxSubmit/Web.hs
-  include: undecided
+  include: true
 - title: Updating cabal version on master to 1.36.0
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4391
@@ -2090,7 +2116,7 @@
     - cardano-node/cardano-node.cabal
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: Allow reading/writing text envelopes from pipes
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4384
@@ -2100,7 +2126,7 @@
     - cardano-api/ChangeLog.md
     - cardano-api/src/Cardano/Api/SerialiseTextEnvelope.hs
     - cardano-api/src/Cardano/Api/Utils.hs
-  include: undecided
+  include: true
 - title: Remove unnecessary validation of Data
   author: Michael Peyton Jones
   url: https://github.com/input-output-hk/cardano-node/pull/4344
@@ -2108,7 +2134,7 @@
   mergedAt: "2023-03-17T10:10:08Z"
   files:
     - cardano-api/src/Cardano/Api/ScriptData.hs
-  include: undecided
+  include: true
 - title: Append change instead of prepending it
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4343
@@ -2117,7 +2143,7 @@
   files:
     - cardano-api/ChangeLog.md
     - cardano-api/src/Cardano/Api/Fees.hs
-  include: undecided
+  include: true
 - title: Rename TestEnableDevelopmentHardForkEras and TestEnableDevelopmentNetworkProtocols
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4341
@@ -2141,7 +2167,7 @@
     - nix/workbench/service/nodes.nix
     - scripts/babbage/mkfiles.sh
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: Deprecate intermediate txbody format
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4303
@@ -2173,7 +2199,7 @@
     - cardano-cli/test/data/golden/shelley/tx/txbody
     - cardano-cli/test/data/golden/shelley/witnesses/singleSigningKeyWitness
     - scripts/lite/example-build-cmd.sh
-  include: undecided
+  include: true
 - title: 'Multiple pools support in query stake snapshot '
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4279
@@ -2187,7 +2213,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
     - doc/stake-pool-operations/10_query_stakepool.md
-  include: undecided
+  include: true
 - title: Add tx-mempool command to CLI
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4276
@@ -2204,7 +2230,7 @@
     - doc/reference/cardano-node-cli-reference.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Update changelogs with 1.35.3
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4269
@@ -2214,7 +2240,7 @@
     - cardano-api/ChangeLog.md
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
-  include: undecided
+  include: true
 - title: Optimise query leadership schedule command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4250
@@ -2226,7 +2252,7 @@
     - cardano-api/src/Cardano/Api/Shelley.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Orphans.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
-  include: undecided
+  include: true
 - title: Added FromJSON instance for 'EraInMode BabbageEra CardanoMode'
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4249
@@ -2235,7 +2261,7 @@
   files:
     - cardano-api/src/Cardano/Api/Modes.hs
     - cardano-api/test/Test/Cardano/Api/Json.hs
-  include: undecided
+  include: true
 - title: update ledger to the tip of release/1.0.0
   author: Jared Corduan
   url: https://github.com/input-output-hk/cardano-node/pull/4242
@@ -2254,7 +2280,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: Add V2 script context equivalence test shell scripts
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4238
@@ -2274,7 +2300,7 @@
     - scripts/plutus/script-context-equivalance-test.sh
     - scripts/plutus/scripts/v2/context-equivalence-test.plutus
     - scripts/plutus/scripts/v2/minting-context-equivalance-test.plutus
-  include: undecided
+  include: true
 - title: Update create-staked with the ability to specify relays for all created stake pools
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4234
@@ -2286,7 +2312,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Parsers.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - nix/workbench/genesis.sh
-  include: undecided
+  include: true
 - title: Script ToJSON instances serialises the full script
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/4223
@@ -2294,7 +2320,7 @@
   mergedAt: "2022-07-26T07:33:15Z"
   files:
     - cardano-api/src/Cardano/Api/Orphans.hs
-  include: undecided
+  include: true
 - title: Release 1.35.2
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4220
@@ -2313,7 +2339,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: More memory efficient query ledger-state command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4205
@@ -2324,7 +2350,7 @@
     - cardano-api/src/Cardano/Api/Orphans.hs
     - cardano-api/src/Cardano/Api/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
-  include: undecided
+  include: true
 - title: Expose AcquireFailure and SystemStart from Cardano.Api.Shelley
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4199
@@ -2338,7 +2364,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Update build command to automatically calculate the total and return collateral values
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4198
@@ -2355,7 +2381,7 @@
     - cardano-cli/test/data/golden/mary/transaction-view.out
     - cardano-cli/test/data/golden/shelley/transaction-view.out
     - scripts/babbage/example-babbage-script-usage.sh
-  include: undecided
+  include: true
 - title: Add documentation for total collateral and return collateral.
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4183
@@ -2366,7 +2392,7 @@
     - doc/reference/plutus/babbage-script-example.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Optimise query stake snapshot command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4179
@@ -2379,7 +2405,7 @@
     - cardano-api/src/Cardano/Api/Shelley.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
-  include: undecided
+  include: true
 - title: New query pool-state command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4170
@@ -2395,7 +2421,7 @@
     - cardano-node/src/Cardano/Node/Tracing/Documentation.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/P2P.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
-  include: undecided
+  include: true
 - title: Fix building of Alonzo transaction in Babbage era.
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4166
@@ -2403,7 +2429,7 @@
   mergedAt: "2022-07-23T03:23:26Z"
   files:
     - cardano-api/src/Cardano/Api/ProtocolParameters.hs
-  include: undecided
+  include: true
 - title: Added changelogs and updated cabal files for 1.35.1
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4153
@@ -2421,7 +2447,7 @@
     - cardano-submit-api/CHANGELOG.md
     - cardano-testnet/cardano-testnet.cabal
     - docker-compose.yml
-  include: undecided
+  include: true
 - title: Add utxoCostPerByte protocol parameter
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4141
@@ -2438,7 +2464,7 @@
     - cardano-cli/test/data/golden/alonzo/transaction-view.out
     - cardano-node/src/Cardano/Node/Tracing/Era/Shelley.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Shelley.hs
-  include: undecided
+  include: true
 - title: Adding changelogs for 1.35.0
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4136
@@ -2449,7 +2475,7 @@
     - cardano-cli/ChangeLog.md
     - cardano-node/ChangeLog.md
     - cardano-submit-api/CHANGELOG.md
-  include: undecided
+  include: true
 - title: Transaction build in any alonzo era when on babbage testnet
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4135
@@ -2466,7 +2492,7 @@
     - cardano-api/src/Cardano/Api/TxBody.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
-  include: undecided
+  include: true
 - title: Update cardano-ledger and ouroboros-network dependencies
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4118
@@ -2483,7 +2509,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - cardano-node/src/Cardano/Node/Tracing/Tracers/P2P.hs
     - cardano-node/src/Cardano/Tracing/OrphanInstances/Network.hs
-  include: undecided
+  include: true
 - title: Fix leadership schedule for current on babbage
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4106
@@ -2508,7 +2534,7 @@
     - cardano-testnet/testnet/Testnet/Commands.hs
     - cardano-testnet/testnet/Testnet/Commands/Babbage.hs
     - cardano-testnet/testnet/Testnet/Commands/Cardano.hs
-  include: undecided
+  include: true
 - title: Expose Key interface in Cardano.Api.Shelley
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/4048
@@ -2519,7 +2545,7 @@
     - cardano-api/src/Cardano/Api/Shelley.hs
     - cardano-cli/src/Cardano/CLI/Byron/Run.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Key.hs
-  include: undecided
+  include: true
 - title: 'Disable development eras configuration flag '
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4030
@@ -2529,7 +2555,7 @@
     - cardano-api/src/Cardano/Api/Script.hs
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Reduce memory usage of create staked command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4021
@@ -2551,7 +2577,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
     - doc/new-tracing/tracers_doc_generated.md
-  include: undecided
+  include: true
 - title: 'PLT-106: Add encoder and decoder for `LedgerState`'
   author: Ziyang Liu
   url: https://github.com/input-output-hk/cardano-node/pull/3993
@@ -2560,7 +2586,7 @@
   files:
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/LedgerState.hs
-  include: undecided
+  include: true
 - title: Add script evaluation events to LedgerEvent
   author: Ziyang Liu
   url: https://github.com/input-output-hk/cardano-node/pull/3984
@@ -2568,7 +2594,7 @@
   mergedAt: "2023-02-07T23:15:04Z"
   files:
     - cardano-api/src/Cardano/Api/LedgerEvent.hs
-  include: undecided
+  include: true
 - title: Fix error messages in Cardano.Api.ProtocolParameters
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/3894
@@ -2576,7 +2602,7 @@
   mergedAt: "2022-07-20T14:11:49Z"
   files:
     - cardano-api/src/Cardano/Api/ProtocolParameters.hs
-  include: undecided
+  include: true
 - title: Update index state to 2022-07-01T00:00:00Z
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/3862
@@ -2607,7 +2633,7 @@
     - cardano-testnet/test/Test/Util.hs
     - flake.lock
     - nix/haskell.nix
-  include: undecided
+  include: false
 - title: Remove hint of "string" support for ScriptData
   author: James
   url: https://github.com/input-output-hk/cardano-node/pull/3775
@@ -2615,7 +2641,7 @@
   mergedAt: "2023-03-17T10:18:18Z"
   files:
     - cardano-api/src/Cardano/Api/ScriptData.hs
-  include: undecided
+  include: true
 - title: Add 'IsScriptWitnessInCtx'
   author: Matthias Benkort
   url: https://github.com/input-output-hk/cardano-node/pull/3441
@@ -2624,7 +2650,7 @@
   files:
     - cardano-api/src/Cardano/Api.hs
     - cardano-api/src/Cardano/Api/Script.hs
-  include: undecided
+  include: true
 - title: Fix haddock for ScriptDataSupportedInEra
   author: Sebastian Nagel
   url: https://github.com/input-output-hk/cardano-node/pull/3407
@@ -2632,7 +2658,7 @@
   mergedAt: "2022-10-27T14:34:22Z"
   files:
     - cardano-api/src/Cardano/Api/TxBody.hs
-  include: undecided
+  include: false
 - title: 'cardano-cli: Add option `--stake-address` to several subcommands'
   author: Yuriy Syrovetskiy
   url: https://github.com/input-output-hk/cardano-node/pull/3404
@@ -2647,4 +2673,4 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Address.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Governance.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
-  include: undecided
+  include: true
