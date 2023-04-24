@@ -1436,12 +1436,19 @@ utcTimeToSlotNo (SocketPath sockPath) (AnyConsensusModeParams cModeParams) netwo
   let localNodeConnInfo = LocalNodeConnectInfo cModeParams network sockPath
   case consensusModeOnly cModeParams of
     CardanoMode -> do
-      (systemStart, eraHistory) <- withExceptT ShelleyQueryCmdAcquireFailure $
-        (,) <$> (ExceptT $ queryNodeLocalState localNodeConnInfo Nothing QuerySystemStart)
-            <*> (ExceptT $ queryNodeLocalState localNodeConnInfo Nothing (QueryEraHistory CardanoModeIsMultiEra))
+      (systemStart, eraHistory) <- executeLocalStateQueryExpr' localNodeConnInfo $
+        (,) <$> queryExpr' QuerySystemStart
+            <*> queryExpr' (QueryEraHistory CardanoModeIsMultiEra)
       let relTime = toRelativeTime systemStart utcTime
       hoistEither $ Api.getSlotForRelativeTime relTime eraHistory & first ShelleyQueryCmdPastHorizon
     mode -> left . ShelleyQueryCmdUnsupportedMode $ AnyConsensusMode mode
+  where
+    executeLocalStateQueryExpr' localNodeConnInfo =
+      ExceptT
+      . fmap (join . first ShelleyQueryCmdAcquireFailure)
+      . executeLocalStateQueryExpr localNodeConnInfo Nothing
+      . runExceptT
+    queryExpr' = withExceptT ShelleyQueryCmdUnsupportedNtcVersion . ExceptT . queryExpr
 
 
 obtainLedgerEraClassConstraints
