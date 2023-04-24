@@ -41,15 +41,17 @@
   url: https://github.com/input-output-hk/cardano-node/pull/4972
   number: 4972
   mergedAt: "2023-03-13T11:28:13Z"
+  notes: Add conwaya genesis script
   files:
     - configuration/cardano/shelley_qa-conway-genesis.json
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: Take all dependencies from Hackage or CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4921
   number: 4921
   mergedAt: "2023-03-10T00:20:06Z"
+  notes: Add conway related configuration files
   files:
     - .gitattributes
     - .github/workflows/check-mainnet-config.yml
@@ -142,12 +144,13 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: Update docs
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4382
   number: 4382
   mergedAt: "2022-08-25T03:31:07Z"
+  notes: Update README for where to download configurations from
   files:
     - configuration/readme.md
     - doc/getting-started/cli.md
@@ -165,12 +168,13 @@
     - doc/stake-pool-operations/7_KES_period.md
     - doc/stake-pool-operations/8_register_stakepool.md
     - doc/stake-pool-operations/9_leadership_schedule.md
-  include: undecided
+  include: true
 - title: Minimise config
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4351
   number: 4351
   mergedAt: "2022-09-21T21:14:30Z"
+  notes: Edit trace options in configuration
   files:
     - Makefile
     - README.rst
@@ -234,7 +238,7 @@
     - trace-dispatcher/doc/trace-dispatcher.md
     - trace-dispatcher/src/Cardano/Logging/ConfigurationParser.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: true
 - title: Rename TestEnableDevelopmentHardForkEras and TestEnableDevelopmentNetworkProtocols
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4341
@@ -258,4 +262,4 @@
     - nix/workbench/service/nodes.nix
     - scripts/babbage/mkfiles.sh
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
