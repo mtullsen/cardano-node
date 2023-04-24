@@ -3,25 +3,28 @@
   url: https://github.com/input-output-hk/cardano-node/pull/5051
   number: 5051
   mergedAt: "2023-04-06T14:14:57Z"
+  notes: Small improvements to getting started docs
   files:
     - doc/getting-started/install.md
-  include: undecided
+  include: true
 - title: Update cardano-governance.md
   author: NetWalker108
   url: https://github.com/input-output-hk/cardano-node/pull/5045
   number: 5045
   mergedAt: "2023-04-17T12:58:28Z"
+  notes: Fix typo in cardano-governance.md
   files:
     - doc/reference/cardano-governance.md
-  include: undecided
+  include: true
 - title: stakeKey registration stake.skey witness not needed
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4975
   number: 4975
   mergedAt: "2023-03-17T23:37:18Z"
+  notes: Remove unnessary witness from register key example
   files:
     - doc/stake-pool-operations/5_register_key.md
-  include: undecided
+  include: true
 - title: Document how to convert between hex and bech32
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4974
@@ -29,7 +32,7 @@
   mergedAt: "2023-03-14T00:59:49Z"
   files:
     - doc/reference/shelley-genesis.md
-  include: undecided
+  include: true
 - title: Fix typos
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4964
@@ -38,7 +41,7 @@
   files:
     - CONTRIBUTING.rst
     - doc/reference/cardano-node-cli-reference.md
-  include: undecided
+  include: true
 - title: Update getting started to include MacOS
   author: Vincent Orr
   url: https://github.com/input-output-hk/cardano-node/pull/4952
@@ -46,7 +49,7 @@
   mergedAt: "2023-03-11T13:12:26Z"
   files:
     - doc/getting-started/install.md
-  include: undecided
+  include: true
 - title: Add event.type to concurrency group
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4947
@@ -81,7 +84,7 @@
     - cardano-testnet/test/Test/ShutdownOnSlotSynced.hs
     - doc/getting-started/launching-a-testnet.md
     - flake.lock
-  include: undecided
+  include: false
 - title: Update docs for simple transaction
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4916
@@ -92,12 +95,13 @@
     - doc/reference/shelley-genesis.md
     - doc/stake-pool-operations/12_retire_stakepool.md
     - doc/stake-pool-operations/4_simple_transaction.md
-  include: undecided
+  include: true
 - title: Added features to tracing
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4908
   number: 4908
   mergedAt: "2023-03-01T04:06:26Z"
+  ping: Serge
   files:
     - bench/tx-generator/src/Cardano/Benchmarking/Tracer.hs
     - cardano-node/src/Cardano/Node/Tracing/Documentation.hs
@@ -145,7 +149,7 @@
     - mlc_config.json
     - scripts/benchmarking/README.md
     - trace-forward/README.md
-  include: undecided
+  include: true
 - title: Clarify the valency setting's description
   author: James Kelley
   url: https://github.com/input-output-hk/cardano-node/pull/4849
@@ -153,12 +157,13 @@
   mergedAt: "2023-03-13T01:43:57Z"
   files:
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Optimized trace-dispatcher and tracing system
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4811
   number: 4811
   mergedAt: "2023-01-31T10:24:25Z"
+  ping: serge
   files:
     - bench/tx-generator/src/Cardano/Benchmarking/Tracer.hs
     - cabal.project
@@ -246,7 +251,7 @@
   mergedAt: "2023-03-01T06:27:24Z"
   files:
     - doc/.sphinx/requirements.txt
-  include: undecided
+  include: false
 - title: Update install.md
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4786
@@ -254,7 +259,7 @@
   mergedAt: "2023-01-16T18:47:44Z"
   files:
     - doc/getting-started/install.md
-  include: undecided
+  include: true
 - title: small amendment in stake snapshot docs
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4783
@@ -262,7 +267,7 @@
   mergedAt: "2023-03-13T01:44:49Z"
   files:
     - doc/stake-pool-operations/10_query_stakepool.md
-  include: undecided
+  include: true
 - title: Update cardano-governance.md
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4768
@@ -270,7 +275,7 @@
   mergedAt: "2023-01-11T14:29:03Z"
   files:
     - doc/reference/cardano-governance.md
-  include: undecided
+  include: true
 - title: Docs for create-cardano
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4767
@@ -278,7 +283,7 @@
   mergedAt: "2023-03-11T22:35:12Z"
   files:
     - doc/reference/create-cardano.md
-  include: undecided
+  include: true
 - title: Cardano governance documentation
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4719
@@ -288,7 +293,7 @@
     - doc/reference/cardano-governance.md
     - doc/reference/images/upbyron.png
     - doc/reference/images/upshelley.png
-  include: undecided
+  include: true
 - title: Remove cardano-cli address build-script
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4700
@@ -302,7 +307,7 @@
     - cardano-cli/test/Test/Golden/Shelley/MultiSig/Address.hs
     - doc/reference/cardano-node-cli-reference.md
     - doc/reference/simple-scripts.md
-  include: undecided
+  include: true
 - title: 'build(deps): bump certifi from 2020.4.5.2 to 2022.12.7 in /doc/.sphinx'
   author: null
   url: https://github.com/input-output-hk/cardano-node/pull/4699
@@ -310,7 +315,7 @@
   mergedAt: "2022-12-20T18:46:53Z"
   files:
     - doc/.sphinx/requirements.txt
-  include: undecided
+  include: false
 - title: Use JSON instances for NodeToNodeVersion & NodeToClientVersion
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4691
@@ -339,6 +344,7 @@
   url: https://github.com/input-output-hk/cardano-node/pull/4612
   number: 4612
   mergedAt: "2023-02-04T16:16:41Z"
+  ping: marcin
   files:
     - bench/cardano-topology/cardano-topology.cabal
     - bench/tx-generator/src/Cardano/Benchmarking/GeneratorTx/NodeToNode.hs
@@ -380,7 +386,7 @@
     - docker-compose.yml
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
-  include: undecided
+  include: true
 - title: Fix missing trace-forward messages
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4581
@@ -447,7 +453,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Transaction.hs
     - doc/getting-started/install.md
     - doc/reference/simple-scripts.md
-  include: undecided
+  include: true
 - title: New p2p topology file format
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4563
@@ -464,7 +470,7 @@
     - cardano-node/test/Test/Cardano/Node/Json.hs
     - doc/getting-started/install.md
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Add a native tokens tutorial and exercises to a newly created MA folder
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/4562
@@ -477,7 +483,7 @@
     - doc/reference/native-tokens/02-getting-started.md
     - doc/reference/native-tokens/03-exercises.md
     - doc/reference/native-tokens/04-exchange-scenarios.md
-  include: undecided
+  include: true
 - title: link to explorer.cardano.org/relays/topology.json
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4545
@@ -485,7 +491,7 @@
   mergedAt: "2023-03-19T03:34:16Z"
   files:
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Update docs
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4382
@@ -508,7 +514,7 @@
     - doc/stake-pool-operations/7_KES_period.md
     - doc/stake-pool-operations/8_register_stakepool.md
     - doc/stake-pool-operations/9_leadership_schedule.md
-  include: undecided
+  include: true
 - title: Minimise config
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4351
@@ -577,7 +583,7 @@
     - trace-dispatcher/doc/trace-dispatcher.md
     - trace-dispatcher/src/Cardano/Logging/ConfigurationParser.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: true
 - title: 'Multiple pools support in query stake snapshot '
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4279
@@ -591,7 +597,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Query.hs
     - cardano-cli/src/Cardano/CLI/Types.hs
     - doc/stake-pool-operations/10_query_stakepool.md
-  include: undecided
+  include: true
 - title: Add tx-mempool command to CLI
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4276
@@ -608,7 +614,7 @@
     - doc/reference/cardano-node-cli-reference.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Use pkg-config for LMDB
   author: Javier Sagredo
   url: https://github.com/input-output-hk/cardano-node/pull/4217
@@ -618,7 +624,7 @@
     - .github/workflows/cabal.project.local.ci
     - cabal.project
     - doc/getting-started/building-the-node-on-windows.md
-  include: undecided
+  include: true
 - title: Document how to disable ledger peers
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4209
@@ -626,7 +632,7 @@
   mergedAt: "2022-11-08T12:07:07Z"
   files:
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Add documentation for total collateral and return collateral.
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4183
@@ -637,7 +643,7 @@
     - doc/reference/plutus/babbage-script-example.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Fix unresolved conflicts in traces_doc_generated.md
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4161
@@ -645,7 +651,7 @@
   mergedAt: "2022-07-11T03:33:44Z"
   files:
     - doc/new-tracing/tracers_doc_generated.md
-  include: undecided
+  include: true
 - title: CAD-4728  Change the units for the LMDB `mapsize` option to GB and let the parameter be a number
   author: Joris Dral
   url: https://github.com/input-output-hk/cardano-node/pull/4155
@@ -659,7 +665,7 @@
     - cardano-node/src/Cardano/Node/Parsers.hs
     - cardano-node/src/Cardano/Node/Run.hs
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Restructure the namespace
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4117
@@ -694,7 +700,7 @@
     - trace-dispatcher/test/Cardano/Logging/Test/Script.hs
     - trace-resources/src/Cardano/Logging/Resources/Types.hs
     - trace-resources/test/trace-resources-test.hs
-  include: undecided
+  include: true
 - title: Document cold.counter breaking changes for babbage
   author: 'Carlos LopezDeLara '
   url: https://github.com/input-output-hk/cardano-node/pull/4116
@@ -702,7 +708,7 @@
   mergedAt: "2022-07-22T01:11:01Z"
   files:
     - doc/stake-pool-operations/KES_period.md
-  include: undecided
+  include: true
 - title: Update getting-started installation dependencies
   author: James
   url: https://github.com/input-output-hk/cardano-node/pull/4107
@@ -710,7 +716,7 @@
   mergedAt: "2022-06-28T13:09:13Z"
   files:
     - doc/getting-started/install.md
-  include: undecided
+  include: true
 - title: 'RTView: MVP'
   author: Denis Shevchenko
   url: https://github.com/input-output-hk/cardano-node/pull/4105
@@ -755,7 +761,7 @@
     - cardano-tracer/src/Cardano/Tracer/Run.hs
     - cardano-tracer/test/Cardano/Tracer/Test/Acceptor.hs
     - doc/new-tracing/tracers_doc_generated.md
-  include: undecided
+  include: true
 - title: adding a "make check" to the libsodium and secp256k1 install process
   author: Martin Lang
   url: https://github.com/input-output-hk/cardano-node/pull/4104
@@ -763,7 +769,7 @@
   mergedAt: "2023-02-28T11:11:38Z"
   files:
     - doc/getting-started/install.md
-  include: undecided
+  include: true
 - title: CAD-4437 Include UTxO HD installation/usage instructions in READMEs
   author: Joris Dral
   url: https://github.com/input-output-hk/cardano-node/pull/4079
@@ -777,7 +783,7 @@
     - doc/getting-started/building-the-node-on-windows.md
     - doc/getting-started/install.md
     - doc/getting-started/understanding-config-files.md
-  include: undecided
+  include: true
 - title: Reduce memory usage of create staked command
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4021
@@ -799,7 +805,7 @@
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Genesis.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/StakeAddress.hs
     - doc/new-tracing/tracers_doc_generated.md
-  include: undecided
+  include: true
 - title: CAD-3928 minor polish
   author: ""
   url: https://github.com/input-output-hk/cardano-node/pull/3701
@@ -807,4 +813,4 @@
   mergedAt: "2023-03-11T14:01:57Z"
   files:
     - doc/reference/cardano-node-cli-reference.md
-  include: undecided
+  include: true
