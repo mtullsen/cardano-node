@@ -83,7 +83,7 @@
     - docker-compose.yml
     - flake.lock
     - scripts/babbage/alonzo-babbage-test-genesis.json
-  include: undecided
+  include: false
 - title: Add LedgerStateBabbage and LedgerStateConway pattern synonyms
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/5001
@@ -94,7 +94,7 @@
     - cardano-api/src/Cardano/Api/Orphans.hs
     - cardano-client-demo/StakeCredentialHistory.hs
     - cardano-client-demo/cardano-client-demo.cabal
-  include: undecided
+  include: false
 - title: Take all dependencies from Hackage or CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4921
@@ -192,7 +192,7 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: false
 - title: Check cabal files in CI
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4766
@@ -221,7 +221,7 @@
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Date ranges for copyright
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4755
@@ -288,7 +288,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Cleaned cabal files
   author: Marcin Szamotulski
   url: https://github.com/input-output-hk/cardano-node/pull/4710
@@ -350,7 +350,7 @@
     - trace-resources/LICENSE
     - trace-resources/NOTICE
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: false
 - title: Add support for ghc-9.2 and partial support for CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4701
@@ -428,7 +428,7 @@
     - nix/workbench/profiles/tracer-service.nix
     - trace-dispatcher/src/Cardano/Logging/Tracer/Composed.hs
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: false
 - title: Update ouroboros-network and cardano-ledger dependencies
   author: Joosep Jääger
   url: https://github.com/input-output-hk/cardano-node/pull/4608
@@ -487,4 +487,4 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: false
