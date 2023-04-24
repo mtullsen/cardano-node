@@ -5,7 +5,7 @@
   mergedAt: "2023-04-12T07:18:10Z"
   files:
     - scripts/project.sh
-  include: undecided
+  include: true
 - title: Integrate latest ledger dependencies
   author: Alexey Kuleshevich
   url: https://github.com/input-output-hk/cardano-node/pull/5013
@@ -99,7 +99,7 @@
   mergedAt: "2023-03-17T04:51:50Z"
   files:
     - scripts/gen-merge-summary.sh
-  include: undecided
+  include: true
 - title: Script to generate merge summary
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4983
@@ -107,7 +107,7 @@
   mergedAt: "2023-03-15T23:39:35Z"
   files:
     - scripts/gen-merge-summary.sh
-  include: undecided
+  include: true
 - title: Fix byron-to-alonzo/mkfiles.sh script for conway
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4972
@@ -116,7 +116,7 @@
   files:
     - configuration/cardano/shelley_qa-conway-genesis.json
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: Fix path to mkfiles.sh script in documentation
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4949
@@ -124,7 +124,7 @@
   mergedAt: "2023-03-08T04:05:42Z"
   files:
     - scripts/README.md
-  include: undecided
+  include: true
 - title: 'scripts:  drop legacy benchmarking scripts'
   author: Kosyrev Serge
   url: https://github.com/input-output-hk/cardano-node/pull/4934
@@ -152,7 +152,7 @@
     - scripts/benchmarking/submit-tx.sh
     - scripts/lite/membench-new-tracing.sh
     - scripts/lite/membench-old-tracing.sh
-  include: undecided
+  include: true
 - title: Preserve ScriptData bytes fix
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4926
@@ -162,7 +162,7 @@
     - cardano-api/src/Cardano/Api/ScriptData.hs
     - cardano-cli/src/Cardano/CLI/Shelley/Run/Read.hs
     - scripts/babbage/example-babbage-script-usage.sh
-  include: undecided
+  include: true
 - title: Take all dependencies from Hackage or CHaP
   author: Erik de Castro Lopo
   url: https://github.com/input-output-hk/cardano-node/pull/4921
@@ -260,7 +260,7 @@
     - trace-dispatcher/src/Cardano/Logging/Forwarding.hs
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
-  include: undecided
+  include: true
 - title: Fix some markdown links
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4882
@@ -282,7 +282,7 @@
     - mlc_config.json
     - scripts/benchmarking/README.md
     - trace-forward/README.md
-  include: undecided
+  include: true
 - title: Remove reconfigure-hlint.sh script
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4838
@@ -347,7 +347,7 @@
     - trace-dispatcher/src/Cardano/Logging/DocuGenerator.hs
     - trace-forward/src/Trace/Forward/Utils/TraceObject.hs
     - trace-forward/test/Test/Trace/Forward/Protocol/DataPoint/Examples.hs
-  include: undecided
+  include: true
 - title: Check cabal files in CI
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4766
@@ -376,7 +376,7 @@
     - trace-dispatcher/trace-dispatcher.cabal
     - trace-forward/trace-forward.cabal
     - trace-resources/trace-resources.cabal
-  include: undecided
+  include: true
 - title: Delete obsolete scripts
   author: John Ky
   url: https://github.com/input-output-hk/cardano-node/pull/4742
@@ -385,7 +385,7 @@
   files:
     - scripts/byron-to-shelley/mkfiles.sh
     - scripts/shelley-from-scratch/mkfiles.sh
-  include: undecided
+  include: true
 - title: Minimise config
   author: Jürgen Nicklisch
   url: https://github.com/input-output-hk/cardano-node/pull/4351
@@ -454,7 +454,7 @@
     - trace-dispatcher/doc/trace-dispatcher.md
     - trace-dispatcher/src/Cardano/Logging/ConfigurationParser.hs
     - trace-dispatcher/src/Cardano/Logging/Types.hs
-  include: undecided
+  include: true
 - title: Rename TestEnableDevelopmentHardForkEras and TestEnableDevelopmentNetworkProtocols
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4341
@@ -478,7 +478,7 @@
     - nix/workbench/service/nodes.nix
     - scripts/babbage/mkfiles.sh
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: Deprecate intermediate txbody format
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4303
@@ -510,7 +510,7 @@
     - cardano-cli/test/data/golden/shelley/tx/txbody
     - cardano-cli/test/data/golden/shelley/witnesses/singleSigningKeyWitness
     - scripts/lite/example-build-cmd.sh
-  include: undecided
+  include: true
 - title: Add tx-mempool command to CLI
   author: Robert 'Probie' Offner
   url: https://github.com/input-output-hk/cardano-node/pull/4276
@@ -527,7 +527,7 @@
     - doc/reference/cardano-node-cli-reference.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: Fix byron-to-alonzo.sh
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4240
@@ -535,7 +535,7 @@
   mergedAt: "2022-09-01T15:14:28Z"
   files:
     - scripts/byron-to-alonzo/mkfiles.sh
-  include: undecided
+  include: true
 - title: Add V2 script context equivalence test shell scripts
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4238
@@ -555,7 +555,7 @@
     - scripts/plutus/script-context-equivalance-test.sh
     - scripts/plutus/scripts/v2/context-equivalence-test.plutus
     - scripts/plutus/scripts/v2/minting-context-equivalance-test.plutus
-  include: undecided
+  include: true
 - title: Fix register-and-delegate-script-staking-address.sh
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4206
@@ -563,7 +563,7 @@
   mergedAt: "2022-07-21T21:55:41Z"
   files:
     - scripts/babbage/staking-example/register-and-delegate-script-staking-address.sh
-  include: undecided
+  include: true
 - title: Update build command to automatically calculate the total and return collateral values
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4198
@@ -580,7 +580,7 @@
     - cardano-cli/test/data/golden/mary/transaction-view.out
     - cardano-cli/test/data/golden/shelley/transaction-view.out
     - scripts/babbage/example-babbage-script-usage.sh
-  include: undecided
+  include: true
 - title: Add documentation for total collateral and return collateral.
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4183
@@ -591,7 +591,7 @@
     - doc/reference/plutus/babbage-script-example.md
     - scripts/babbage/example-babbage-script-usage.sh
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
 - title: 'Disable development eras configuration flag '
   author: Jordan Millar
   url: https://github.com/input-output-hk/cardano-node/pull/4030
@@ -601,4 +601,4 @@
     - cardano-api/src/Cardano/Api/Script.hs
     - cardano-node/src/Cardano/Node/Protocol/Cardano.hs
     - scripts/babbage/mkfiles.sh
-  include: undecided
+  include: true
